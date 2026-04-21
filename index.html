@@ -1,17 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Interactive Liquid Gradient</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <!-- Heading: Syne (Modern, Geometric) -->
   <h1 class="heading option1">Liquid Gradient</h1>
 
-  <!-- Color Scheme Controls -->
   <div class="color-controls">
     <button class="color-btn active" data-scheme="1">Scheme 1</button>
     <button class="color-btn" data-scheme="2">Scheme 2</button>
@@ -20,10 +22,8 @@
     <button class="color-btn" data-scheme="5">Scheme 5</button>
   </div>
 
-  <!-- Color Adjuster Toggle Button -->
   <button class="toggle-adjuster-btn" id="toggleAdjusterBtn">Adjust Colors</button>
 
-  <!-- Color Adjuster Panel -->
   <div class="color-adjuster-panel" id="colorAdjusterPanel">
     <div class="color-adjuster-header">
       <h3 class="color-adjuster-title">Color Adjuster</h3>
@@ -31,9 +31,7 @@
     </div>
 
     <div class="color-picker-group">
-      <div class="color-picker-label">
-        <span>Color 1</span>
-      </div>
+      <div class="color-picker-label"><span>Color 1</span></div>
       <div class="color-picker-wrapper">
         <input type="color" class="color-picker-input" id="colorPicker1" data-color="1">
         <input type="text" class="color-value-display" id="colorValue1" readonly>
@@ -42,9 +40,7 @@
     </div>
 
     <div class="color-picker-group">
-      <div class="color-picker-label">
-        <span>Color 2</span>
-      </div>
+      <div class="color-picker-label"><span>Color 2</span></div>
       <div class="color-picker-wrapper">
         <input type="color" class="color-picker-input" id="colorPicker2" data-color="2">
         <input type="text" class="color-value-display" id="colorValue2" readonly>
@@ -53,9 +49,7 @@
     </div>
 
     <div class="color-picker-group">
-      <div class="color-picker-label">
-        <span>Color 3</span>
-      </div>
+      <div class="color-picker-label"><span>Color 3</span></div>
       <div class="color-picker-wrapper">
         <input type="color" class="color-picker-input" id="colorPicker3" data-color="3">
         <input type="text" class="color-value-display" id="colorValue3" readonly>
@@ -64,9 +58,7 @@
     </div>
 
     <div class="color-picker-group">
-      <div class="color-picker-label">
-        <span>Color 4</span>
-      </div>
+      <div class="color-picker-label"><span>Color 4</span></div>
       <div class="color-picker-wrapper">
         <input type="color" class="color-picker-input" id="colorPicker4" data-color="4">
         <input type="text" class="color-value-display" id="colorValue4" readonly>
@@ -75,9 +67,7 @@
     </div>
 
     <div class="color-picker-group">
-      <div class="color-picker-label">
-        <span>Color 5</span>
-      </div>
+      <div class="color-picker-label"><span>Color 5</span></div>
       <div class="color-picker-wrapper">
         <input type="color" class="color-picker-input" id="colorPicker5" data-color="5">
         <input type="text" class="color-value-display" id="colorValue5" readonly>
@@ -86,9 +76,7 @@
     </div>
 
     <div class="color-picker-group">
-      <div class="color-picker-label">
-        <span>Color 6</span>
-      </div>
+      <div class="color-picker-label"><span>Color 6</span></div>
       <div class="color-picker-wrapper">
         <input type="color" class="color-picker-input" id="colorPicker6" data-color="6">
         <input type="text" class="color-value-display" id="colorValue6" readonly>
@@ -104,7 +92,10 @@
   <footer class="footer">
     <a href="https://madebybeings.com" target="_blank" rel="noopener noreferrer">Made By Beings</a>
   </footer>
-  <div class="custom-cursor" id="customCursor"></div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
+  <div class="custom-cursor" id="customCursor"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
 </body>
+</html>
