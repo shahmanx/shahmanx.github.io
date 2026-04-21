@@ -1,83 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shahman | Digital Marketing</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Syncopate:wght@700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-  <div class="nav">
-    <a href="#about" data-scheme="1">About</a>
-    <a href="#services" data-scheme="2">Services</a>
-    <a href="#work" data-scheme="3">Work</a>
-    <a href="#results" data-scheme="4">Results</a>
-    <a href="#contact" data-scheme="5">Contact</a>
-  </div>
+    <div class="noise"></div>
+    <div id="cursor"></div>
 
-  <div class="hero">
-    <h1>Shahman</h1>
-    <p>Digital Marketing</p>
-  </div>
+    <nav class="brutal-nav">
+        <a href="https://www.alerak.studio" class="nav-logo magnetic" style="text-decoration: none;">ALERAK</a>
+        <ul class="nav-menu">
+            <li><a href="#" class="nav-link magnetic" data-text="WORK">WORK</a></li>
+            <li><a href="#" class="nav-link magnetic" data-text="ABOUT">ABOUT</a></li>
+            <li><a href="#" class="nav-link magnetic" data-text="LABS">LABS</a></li>
+        </ul>
+        <button class="cta-btn magnetic"><span>LET'S TALK</span></button>
+    </nav>
 
-  <section id="about" data-scheme="1">
-    <div class="section-content">
-      <h2>About</h2>
-      <p>
-        I help brands grow through strategic digital marketing, creative content,
-        and audience-focused campaigns.
-      </p>
+    <div id="scroll-content">
+        <section class="hero">
+            <div class="hero-title-container">
+                <h1>
+                    <div class="word">BRUTAL</div><br>
+                    <div class="word">MAGIC</div>
+                </h1>
+            </div>
+
+            <div class="tape-wrapper">
+                <div class="tape-text">
+                    ALERAK STUDIO ✦ SCROLL VELOCITY ✦ INTERACTIVE SYSTEMS ✦ ALERAK STUDIO ✦ SCROLL VELOCITY ✦
+                    INTERACTIVE SYSTEMS ✦
+                </div>
+            </div>
+        </section>
+
+        <section class="section-dark">
+            <p class="big-text">
+                WE BUILD <span>DIGITAL EXPERIENCES</span> THAT DEFY GRAVITY. NO TEMPLATES. NO LIMITS. JUST <span>PURE
+                    CODE</span> AND <span>RAW AESTHETICS</span>.
+            </p>
+        </section>
+
+        <section class="section-dark" style="justify-content: flex-end; text-align: right;">
+            <p class="big-text">
+                INTERACTION<br>
+                <span>REDEFINED</span>
+            </p>
+        </section>
+
+        <footer
+            style="height: 40vh; background: var(--fg); color: var(--bg); display: flex; align-items: center; justify-content: center; flex-direction: column;">
+            <h2 style="font-family: 'Syncopate'; font-size: 3rem; margin-bottom:1rem;"><a
+                    href="https://www.alerak.studio" style="color: inherit; text-decoration: none;"></a>ALERAK</a></h2>
+            <p>© 2026</p>
+        </footer>
     </div>
-  </section>
-
-  <section id="services" data-scheme="2">
-    <div class="section-content">
-      <h2>Services</h2>
-      <p>
-        Social media strategy, content planning, brand positioning, paid campaigns,
-        and digital growth support.
-      </p>
-    </div>
-  </section>
-
-  <section id="work" data-scheme="3">
-    <div class="section-content">
-      <h2>Work</h2>
-      <p>
-        Showcase your campaigns, brand collaborations, content projects, or social media work here.
-      </p>
-    </div>
-  </section>
-
-  <section id="results" data-scheme="4">
-    <div class="section-content">
-      <h2>Results</h2>
-      <p>
-        Highlight real outcomes like engagement growth, increased reach, conversions,
-        stronger branding, or campaign performance.
-      </p>
-    </div>
-  </section>
-
-  <section id="contact" data-scheme="5">
-    <div class="section-content">
-      <h2>Contact</h2>
-      <p>Email: your@email.com</p>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <p>Let’s grow your brand</p>
-  </footer>
-
-  <div class="custom-cursor" id="customCursor"></div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="script.js"></script>
 </body>
-</html>
