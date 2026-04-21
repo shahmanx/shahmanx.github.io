@@ -12,7 +12,6 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   font-family: "Inter", sans-serif;
-  cursor: none;
   color: white;
   background: #0a0e27;
 }
@@ -132,31 +131,6 @@ section {
   text-transform: uppercase;
 }
 
-.custom-cursor {
-  position: fixed;
-  width: 40px;
-  height: 40px;
-  border: 2px solid white;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 1000;
-  transform: translate(-50%, -50%);
-  transition: width 0.2s ease, height 0.2s ease, border-width 0.2s ease;
-  background: transparent;
-  will-change: transform;
-}
-
-.custom-cursor::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 8px;
-  height: 8px;
-  background: white;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-}
 
 @media (max-width: 768px) {
   .nav {
