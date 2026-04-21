@@ -1,97 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shahman | Digital Marketing</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1 class="heading option1">Shahman Zainuddin</h1>
-
-  <div class="color-controls">
-    <button class="color-btn active" data-scheme="1">About me</button>
-    <button class="color-btn" data-scheme="2">Work</button>
-    <button class="color-btn" data-scheme="3">Skill</button>
-    <button class="color-btn" data-scheme="4">Services</button>
-    <button class="color-btn" data-scheme="5">Contact</button>
+  <div class="nav">
+    <a href="#about" data-scheme="1">About</a>
+    <a href="#services" data-scheme="2">Services</a>
+    <a href="#work" data-scheme="3">Work</a>
+    <a href="#results" data-scheme="4">Results</a>
+    <a href="#contact" data-scheme="5">Contact</a>
   </div>
 
-  <button class="toggle-adjuster-btn" id="toggleAdjusterBtn">Adjust Colors</button>
-
-  <div class="color-adjuster-panel" id="colorAdjusterPanel">
-    <div class="color-adjuster-header">
-      <h3 class="color-adjuster-title">Color Adjuster</h3>
-      <button class="color-adjuster-close" id="closeAdjusterBtn">×</button>
-    </div>
-
-    <div class="color-picker-group">
-      <div class="color-picker-label"><span>Color 1</span></div>
-      <div class="color-picker-wrapper">
-        <input type="color" class="color-picker-input" id="colorPicker1" data-color="1">
-        <input type="text" class="color-value-display" id="colorValue1" readonly>
-        <button class="copy-btn" data-copy="1">Copy</button>
-      </div>
-    </div>
-
-    <div class="color-picker-group">
-      <div class="color-picker-label"><span>Color 2</span></div>
-      <div class="color-picker-wrapper">
-        <input type="color" class="color-picker-input" id="colorPicker2" data-color="2">
-        <input type="text" class="color-value-display" id="colorValue2" readonly>
-        <button class="copy-btn" data-copy="2">Copy</button>
-      </div>
-    </div>
-
-    <div class="color-picker-group">
-      <div class="color-picker-label"><span>Color 3</span></div>
-      <div class="color-picker-wrapper">
-        <input type="color" class="color-picker-input" id="colorPicker3" data-color="3">
-        <input type="text" class="color-value-display" id="colorValue3" readonly>
-        <button class="copy-btn" data-copy="3">Copy</button>
-      </div>
-    </div>
-
-    <div class="color-picker-group">
-      <div class="color-picker-label"><span>Color 4</span></div>
-      <div class="color-picker-wrapper">
-        <input type="color" class="color-picker-input" id="colorPicker4" data-color="4">
-        <input type="text" class="color-value-display" id="colorValue4" readonly>
-        <button class="copy-btn" data-copy="4">Copy</button>
-      </div>
-    </div>
-
-    <div class="color-picker-group">
-      <div class="color-picker-label"><span>Color 5</span></div>
-      <div class="color-picker-wrapper">
-        <input type="color" class="color-picker-input" id="colorPicker5" data-color="5">
-        <input type="text" class="color-value-display" id="colorValue5" readonly>
-        <button class="copy-btn" data-copy="5">Copy</button>
-      </div>
-    </div>
-
-    <div class="color-picker-group">
-      <div class="color-picker-label"><span>Color 6</span></div>
-      <div class="color-picker-wrapper">
-        <input type="color" class="color-picker-input" id="colorPicker6" data-color="6">
-        <input type="text" class="color-value-display" id="colorValue6" readonly>
-        <button class="copy-btn" data-copy="6">Copy</button>
-      </div>
-    </div>
-
-    <div class="color-adjuster-actions">
-      <button class="export-btn" id="exportAllBtn">Export All Colors</button>
-    </div>
+  <div class="hero">
+    <h1>Shahman</h1>
+    <p>Digital Marketing</p>
   </div>
+
+  <section id="about" data-scheme="1">
+    <div class="section-content">
+      <h2>About</h2>
+      <p>
+        I help brands grow through strategic digital marketing, creative content,
+        and audience-focused campaigns.
+      </p>
+    </div>
+  </section>
+
+  <section id="services" data-scheme="2">
+    <div class="section-content">
+      <h2>Services</h2>
+      <p>
+        Social media strategy, content planning, brand positioning, paid campaigns,
+        and digital growth support.
+      </p>
+    </div>
+  </section>
+
+  <section id="work" data-scheme="3">
+    <div class="section-content">
+      <h2>Work</h2>
+      <p>
+        Showcase your campaigns, brand collaborations, content projects, or social media work here.
+      </p>
+    </div>
+  </section>
+
+  <section id="results" data-scheme="4">
+    <div class="section-content">
+      <h2>Results</h2>
+      <p>
+        Highlight real outcomes like engagement growth, increased reach, conversions,
+        stronger branding, or campaign performance.
+      </p>
+    </div>
+  </section>
+
+  <section id="contact" data-scheme="5">
+    <div class="section-content">
+      <h2>Contact</h2>
+      <p>Email: your@email.com</p>
+    </div>
+  </section>
 
   <footer class="footer">
-    <a href="https://madebybeings.com" target="_blank" rel="noopener noreferrer">Made By Beings</a>
+    <p>Let’s grow your brand</p>
   </footer>
 
   <div class="custom-cursor" id="customCursor"></div>
