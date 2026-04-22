@@ -1,161 +1,111 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const words = document.querySelectorAll(".hero h1 .word");
+document.addEventListener('DOMContentLoaded', () => {
+    const menuItems = document.querySelectorAll('.menu li');
+    const navLinks = document.querySelectorAll('.menu a');
 
-  words.forEach((word) => {
-    const text = word.textContent;
-    word.innerHTML = "";
+    menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+            menuItems.forEach(i => i.classList.remove('active'));
+            item.classList.add('active');
 
-    text.split("").forEach((char) => {
-      const span = document.createElement("span");
-      span.classList.add("char");
-      span.textContent = char;
-      word.appendChild(span);
-    });
-  });
-
-  const cursor = document.getElementById("cursor");
-  const magneticElements = document.querySelectorAll(".magnetic");
-
-  let mouseX = window.innerWidth / 2;
-  let mouseY = window.innerHeight / 2;
-  let cursorX = mouseX;
-  let cursorY = mouseY;
-
-  function lerp(start, end, factor) {
-    return start + (end - start) * factor;
-  }
-
-  window.addEventListener("mousemove", (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  });
-
-  function animateCursor() {
-    if (cursor) {
-      cursorX = lerp(cursorX, mouseX, 0.15);
-      cursorY = lerp(cursorY, mouseY, 0.15);
-      cursor.style.transform = `translate(${cursorX}px, ${cursorY}px) translate(-50%, -50%)`;
-    }
-    requestAnimationFrame(animateCursor);
-  }
-
-  animateCursor();
-
-  magneticElements.forEach((el) => {
-    el.addEventListener("mousemove", (e) => {
-      const rect = el.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-      const dist = 0.22;
-
-      const moveX = (e.clientX - centerX) * dist;
-      const moveY = (e.clientY - centerY) * dist;
-
-      el.style.transform = `translate(${moveX}px, ${moveY}px)`;
-
-      if (cursor) cursor.classList.add("magnet");
+            const icon = item.querySelector('i');
+            if (icon) {
+                icon.style.transform = 'scale(1.15)';
+                setTimeout(() => {
+                    icon.style.transform = 'scale(1)';
+                }, 180);
+            }
+        });
     });
 
-    el.addEventListener("mouseleave", () => {
-      el.style.transform = "translate(0, 0)";
-      if (cursor) cursor.classList.remove("magnet");
+    menuItems.forEach(item => {
+        item.addEventListener('mouseenter', (e) => {
+            const highlight = document.createElement('div');
+            highlight.classList.add('highlight');
+            highlight.style.position = 'absolute';
+            highlight.style.top = '0';
+            highlight.style.left = '0';
+            highlight.style.width = '100%';
+            highlight.style.height = '100%';
+            highlight.style.borderRadius = '18px';
+            highlight.style.background =
+                `radial-gradient(circle at ${e.offsetX}px ${e.offsetY}px, rgba(255,255,255,0.20) 0%, rgba(255,255,255,0) 70%)`;
+            highlight.style.pointerEvents = 'none';
+            highlight.style.opacity = '1';
+            highlight.style.transition = 'opacity 0.3s ease';
+
+            item.appendChild(highlight);
+
+            setTimeout(() => {
+                highlight.style.opacity = '0';
+                setTimeout(() => {
+                    if (item.contains(highlight)) {
+                        item.removeChild(highlight);
+                    }
+                }, 300);
+            }, 350);
+        });
     });
-  });
 
-  const nav = document.querySelector(".brutal-nav");
-  let isScrolled = false;
+    const cards = document.querySelectorAll('.card, .project-card');
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
 
-  window.addEventListener("scroll", () => {
-    if (!nav) return;
+            const rotateY = (x / rect.width - 0.5) * 8;
+            const rotateX = (y / rect.height - 0.5) * -8;
 
-    if (window.scrollY > 100) {
-      if (!isScrolled) {
-        nav.classList.add("scrolled");
-        isScrolled = true;
-      }
-    } else {
-      if (isScrolled) {
-        nav.classList.remove("scrolled");
-        nav.style.transform = "";
-        isScrolled = false;
-      }
-    }
-  });
+            card.style.transform =
+                `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+        });
 
-  document.addEventListener("mousemove", (e) => {
-    if (!nav || !isScrolled) return;
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
+            card.style.transition = 'transform 0.45s ease';
+        });
 
-    const cx = window.innerWidth / 2;
-    const cy = 100;
+        card.addEventListener('mouseenter', () => {
+            card.style.transition = 'transform 0.12s ease';
+        });
+    });
 
-    const rx = (e.clientY - cy) * 0.02;
-    const ry = (e.clientX - cx) * 0.02;
+    navLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
 
-    const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
+            if (targetId.startsWith('#')) {
+                e.preventDefault();
+                const targetSection = document.querySelector(targetId);
 
-    nav.style.transform =
-      `translateX(-50%) perspective(1000px) ` +
-      `rotateX(${-clamp(rx, -8, 8)}deg) ` +
-      `rotateY(${clamp(ry, -8, 8)}deg)`;
-  });
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    });
 
-  const content = document.getElementById("scroll-content");
-  let skew = 0;
-  let lastScrollTop = window.scrollY;
+    const sections = document.querySelectorAll('main section[id]');
 
-  function scrollLoop() {
-    const scrollTop = window.scrollY;
-    const velocity = scrollTop - lastScrollTop;
-    lastScrollTop = scrollTop;
+    window.addEventListener('scroll', () => {
+        let current = '';
 
-    const maxSkew = 4;
-    const speed = Math.min(Math.max(velocity * 0.08, -maxSkew), maxSkew);
-    skew = lerp(skew, speed, 0.1);
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 120;
+            if (window.scrollY >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
 
-    if (content) {
-      if (Math.abs(skew) > 0.01) {
-        content.style.transform = `skewY(${skew}deg)`;
-      } else {
-        content.style.transform = "skewY(0deg)";
-      }
-    }
-
-    requestAnimationFrame(scrollLoop);
-  }
-
-  scrollLoop();
-
-  const alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-  document.querySelectorAll("[data-text]").forEach((link) => {
-    link.addEventListener("mouseenter", (event) => {
-      let iter = 0;
-      const target = event.currentTarget;
-      const original = target.dataset.text;
-
-      clearInterval(target.interval);
-
-      target.interval = setInterval(() => {
-        target.innerText = original
-          .split("")
-          .map((letter, index) => {
-            if (index < iter) return original[index];
-            return alpha[Math.floor(Math.random() * 26)];
-          })
-          .join("");
-
-        if (iter >= original.length) {
-          clearInterval(target.interval);
+        if (current) {
+            menuItems.forEach(item => item.classList.remove('active'));
+            const activeLink = document.querySelector(`.menu a[href="#${current}"]`);
+            if (activeLink && activeLink.parentElement) {
+                activeLink.parentElement.classList.add('active');
+            }
         }
-
-        iter += 1 / 3;
-      }, 30);
     });
-
-    link.addEventListener("mouseleave", (event) => {
-      const target = event.currentTarget;
-      clearInterval(target.interval);
-      target.innerText = target.dataset.text;
-    });
-  });
 });
