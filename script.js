@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Split hero text into chars
   const words = document.querySelectorAll(".hero h1 .word");
 
   words.forEach((word) => {
@@ -14,7 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Cursor + magnetic effect
   const cursor = document.getElementById("cursor");
   const magneticElements = document.querySelectorAll(".magnetic");
 
@@ -48,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const rect = el.getBoundingClientRect();
       const centerX = rect.left + rect.width / 2;
       const centerY = rect.top + rect.height / 2;
-      const dist = 0.25;
+      const dist = 0.22;
 
       const moveX = (e.clientX - centerX) * dist;
       const moveY = (e.clientY - centerY) * dist;
@@ -64,7 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Navbar scroll state + tilt
   const nav = document.querySelector(".brutal-nav");
   let isScrolled = false;
 
@@ -98,11 +95,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     nav.style.transform =
       `translateX(-50%) perspective(1000px) ` +
-      `rotateX(${-clamp(rx, -10, 10)}deg) ` +
-      `rotateY(${clamp(ry, -10, 10)}deg)`;
+      `rotateX(${-clamp(rx, -8, 8)}deg) ` +
+      `rotateY(${clamp(ry, -8, 8)}deg)`;
   });
 
-  // Scroll skew effect
   const content = document.getElementById("scroll-content");
   let skew = 0;
   let lastScrollTop = window.scrollY;
@@ -112,8 +108,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const velocity = scrollTop - lastScrollTop;
     lastScrollTop = scrollTop;
 
-    const maxSkew = 5;
-    const speed = Math.min(Math.max(velocity * 0.1, -maxSkew), maxSkew);
+    const maxSkew = 4;
+    const speed = Math.min(Math.max(velocity * 0.08, -maxSkew), maxSkew);
     skew = lerp(skew, speed, 0.1);
 
     if (content) {
@@ -129,7 +125,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   scrollLoop();
 
-  // Hacker text effect
   const alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
   document.querySelectorAll("[data-text]").forEach((link) => {
