@@ -1,5 +1,5 @@
 const menuItems = document.querySelectorAll(".menu li");
-const interactiveEls = document.querySelectorAll(".interactive, .card, .project-card, .hero, .glass");
+const interactiveEls = document.querySelectorAll(".menu li, .profile, .card, .logo");
 const particlesWrap = document.getElementById("particles");
 
 // active menu
@@ -10,7 +10,7 @@ menuItems.forEach((item) => {
   });
 });
 
-// hover glow + 3d tilt
+// hover glow + subtle tilt
 interactiveEls.forEach((el) => {
   el.addEventListener("mousemove", (e) => {
     const rect = el.getBoundingClientRect();
@@ -23,21 +23,19 @@ interactiveEls.forEach((el) => {
     el.style.setProperty("--mx", `${percentX}%`);
     el.style.setProperty("--my", `${percentY}%`);
 
-    const rotateY = ((x / rect.width) - 0.5) * 10;
-    const rotateX = ((y / rect.height) - 0.5) * -10;
-
-    el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-  });
-
-  el.addEventListener("mouseenter", () => {
-    el.classList.add("shine");
+    if (el.classList.contains("card")) {
+      const rotateY = ((x / rect.width) - 0.5) * 8;
+      const rotateX = ((y / rect.height) - 0.5) * -8;
+      el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+    }
   });
 
   el.addEventListener("mouseleave", () => {
-    el.style.transform = "";
     el.style.setProperty("--mx", "50%");
     el.style.setProperty("--my", "50%");
-    setTimeout(() => el.classList.remove("shine"), 300);
+    if (el.classList.contains("card")) {
+      el.style.transform = "";
+    }
   });
 });
 
@@ -62,23 +60,8 @@ function createParticle() {
   }, 20000);
 }
 
-for (let i = 0; i < 18; i++) {
-  setTimeout(createParticle, i * 350);
+for (let i = 0; i < 14; i++) {
+  setTimeout(createParticle, i * 300);
 }
 
-setInterval(createParticle, 900);
-
-// Apple-like button press feel
-document.querySelectorAll(".cta-btn, .menu a").forEach((el) => {
-  el.addEventListener("mousedown", () => {
-    el.style.transform = "scale(0.97)";
-  });
-
-  el.addEventListener("mouseup", () => {
-    el.style.transform = "";
-  });
-
-  el.addEventListener("mouseleave", () => {
-    el.style.transform = "";
-  });
-});
+setInterval(createParticle, 1200);
