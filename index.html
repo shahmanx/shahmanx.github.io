@@ -2,74 +2,108 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Shahman | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  />
+
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
+
 <body>
-  <div class="bg-particles" id="particles"></div>
 
-  <div class="container">
-    <aside class="sidebar">
-      <div class="logo"><span>S</span></div>
+<div class="container">
 
-      <nav class="menu">
-        <ul>
-          <li class="active"><a href="#"><i class="fas fa-home"></i><span>Home</span></a></li>
-          <li><a href="#"><i class="fas fa-user"></i><span>About</span></a></li>
-          <li><a href="#"><i class="fas fa-briefcase"></i><span>Services</span></a></li>
-          <li><a href="#"><i class="fas fa-folder"></i><span>Projects</span></a></li>
-          <li><a href="#"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
-        </ul>
-      </nav>
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
 
-      <div class="profile">
-        <div class="avatar">SH</div>
-        <div class="user-info">
-          <h3>Shahman</h3>
-          <p>Digital Marketer</p>
+    <div class="logo">S</div>
+
+    <ul class="menu">
+      <li class="active" data-tab="home"><i class="fas fa-home"></i><span>Home</span></li>
+      <li data-tab="about"><i class="fas fa-user"></i><span>About</span></li>
+      <li data-tab="services"><i class="fas fa-briefcase"></i><span>Services</span></li>
+      <li data-tab="projects"><i class="fas fa-folder"></i><span>Projects</span></li>
+      <li data-tab="contact"><i class="fas fa-envelope"></i><span>Contact</span></li>
+    </ul>
+
+    <div class="profile">
+      <div class="avatar">SH</div>
+      <div>
+        <h3>Shahman</h3>
+        <p>Performance Marketer</p>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <!-- HOME -->
+    <section class="tab active" id="home">
+      <h1>Performance marketing built for conversion</h1>
+      <p>I help brands grow through paid ads, website optimization, tracking, and automation.</p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Paid Ads</h3>
+          <p>Campaign setup and optimization focused on results.</p>
+        </div>
+
+        <div class="card">
+          <h3>Tracking</h3>
+          <p>Lead tracking setup for real performance insights.</p>
+        </div>
+
+        <div class="card">
+          <h3>Web Editing</h3>
+          <p>WordPress, Oxygen & Elementor optimization.</p>
         </div>
       </div>
-    </aside>
+    </section>
 
-    <main class="content">
-      <header>
-        <h1>Welcome Back, Shahman</h1>
-        <p>Here’s your digital marketing portfolio snapshot</p>
-      </header>
+    <!-- ABOUT -->
+    <section class="tab" id="about">
+      <h1>About Me</h1>
+      <p>
+        I’m Shahman — a performance-focused digital marketer working across paid ads,
+        website optimization, conversion tracking, and automation.
+      </p>
+    </section>
 
-      <div class="card-container">
-        <div class="card">
-          <div class="card-icon"><i class="fas fa-bullhorn"></i></div>
-          <div class="card-info">
-            <h3>20+</h3>
-            <p>Campaigns Built</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-icon"><i class="fas fa-chart-line"></i></div>
-          <div class="card-info">
-            <h3>10+</h3>
-            <p>Growth Strategies</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-icon"><i class="fas fa-users"></i></div>
-          <div class="card-info">
-            <h3>5+</h3>
-            <p>Brands Worked With</p>
-          </div>
-        </div>
+    <!-- SERVICES -->
+    <section class="tab" id="services">
+      <h1>Services</h1>
+      <div class="cards">
+        <div class="card"><h3>Paid Ads</h3></div>
+        <div class="card"><h3>Website Optimization</h3></div>
+        <div class="card"><h3>Tracking Setup</h3></div>
+        <div class="card"><h3>Email Automation</h3></div>
+        <div class="card"><h3>Chat Automation</h3></div>
       </div>
-    </main>
-  </div>
+    </section>
 
-  <script src="script.js"></script>
+    <!-- PROJECTS -->
+    <section class="tab" id="projects">
+      <h1>Projects</h1>
+      <div class="cards">
+        <div class="card"><h3>Lead Gen Campaign</h3></div>
+        <div class="card"><h3>Landing Page Optimization</h3></div>
+        <div class="card"><h3>Tracking Setup</h3></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="tab" id="contact">
+      <h1>Contact</h1>
+      <p>Let’s work together.</p>
+      <p><b>Email:</b> your@email.com</p>
+    </section>
+
+  </main>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
