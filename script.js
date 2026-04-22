@@ -1,48 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const menuItems = document.querySelectorAll(".menu li");
-  const navLinks = document.querySelectorAll(".menu a");
-  const cards = document.querySelectorAll(".card, .project-card");
+  const menuItems = document.querySelectorAll(".menu-item");
+  const sections = document.querySelectorAll("main section[id]");
 
   menuItems.forEach((item) => {
-    item.addEventListener("click", () => {
-      menuItems.forEach((i) => i.classList.remove("active"));
-      item.classList.add("active");
-
-      const icon = item.querySelector("i");
-      if (icon) {
-        icon.style.transform = "scale(1.15)";
-        setTimeout(() => {
-          icon.style.transform = "scale(1)";
-        }, 180);
-      }
-    });
-
-    item.addEventListener("mouseenter", (e) => {
-      const highlight = document.createElement("div");
-      highlight.style.position = "absolute";
-      highlight.style.inset = "0";
-      highlight.style.borderRadius = "18px";
-      highlight.style.pointerEvents = "none";
-      highlight.style.opacity = "1";
-      highlight.style.transition = "opacity 0.3s ease";
-      highlight.style.background = `radial-gradient(circle at ${e.offsetX}px ${e.offsetY}px, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0) 72%)`;
-
-      item.appendChild(highlight);
-
-      setTimeout(() => {
-        highlight.style.opacity = "0";
-        setTimeout(() => {
-          if (item.contains(highlight)) item.removeChild(highlight);
-        }, 300);
-      }, 280);
-    });
-  });
-
-  navLinks.forEach((link) => {
-    link.addEventListener("click", function (e) {
-      const targetId = this.getAttribute("href");
+    item.addEventListener("click", (e) => {
+      const targetId = item.getAttribute("href");
       if (targetId.startsWith("#")) {
         e.preventDefault();
+
+        menuItems.forEach((link) => link.classList.remove("active"));
+        item.classList.add("active");
+
         const target = document.querySelector(targetId);
         if (target) {
           target.scrollIntoView({
@@ -54,7 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  cards.forEach((card) => {
+  const hoverCards = document.querySelectorAll(".card, .project-card, .panel");
+
+  hoverCards.forEach((card) => {
     card.addEventListener("mousemove", (e) => {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
@@ -63,37 +33,28 @@ document.addEventListener("DOMContentLoaded", () => {
       const rotateY = (x / rect.width - 0.5) * 8;
       const rotateX = (y / rect.height - 0.5) * -8;
 
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-    });
-
-    card.addEventListener("mouseenter", () => {
-      card.style.transition = "transform 0.12s ease";
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     });
 
     card.addEventListener("mouseleave", () => {
-      card.style.transition = "transform 0.45s ease";
-      card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)";
+      card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg)";
     });
   });
-
-  const sections = document.querySelectorAll("main section[id]");
 
   window.addEventListener("scroll", () => {
     let current = "";
 
     sections.forEach((section) => {
-      const top = section.offsetTop - 140;
-      if (window.scrollY >= top) {
+      const sectionTop = section.offsetTop - 120;
+      if (window.scrollY >= sectionTop) {
         current = section.getAttribute("id");
       }
     });
 
     if (current) {
       menuItems.forEach((item) => item.classList.remove("active"));
-      const activeLink = document.querySelector(`.menu a[href="#${current}"]`);
-      if (activeLink && activeLink.parentElement) {
-        activeLink.parentElement.classList.add("active");
-      }
+      const active = document.querySelector(`.menu-item[href="#${current}"]`);
+      if (active) active.classList.add("active");
     }
   });
 });
