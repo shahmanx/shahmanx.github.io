@@ -2,7 +2,6 @@ const menuItems = document.querySelectorAll(".menu li");
 const interactiveEls = document.querySelectorAll(".menu li, .profile, .card, .logo");
 const particlesWrap = document.getElementById("particles");
 
-// active menu
 menuItems.forEach((item) => {
   item.addEventListener("click", () => {
     menuItems.forEach((i) => i.classList.remove("active"));
@@ -10,7 +9,6 @@ menuItems.forEach((item) => {
   });
 });
 
-// hover glow + subtle tilt
 interactiveEls.forEach((el) => {
   el.addEventListener("mousemove", (e) => {
     const rect = el.getBoundingClientRect();
@@ -39,7 +37,6 @@ interactiveEls.forEach((el) => {
   });
 });
 
-// particles
 function createParticle() {
   const p = document.createElement("span");
   p.className = "particle";
