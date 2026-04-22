@@ -1,248 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shahman | Digital Marketing Portfolio</title>
-  <meta
-    name="description"
-    content="Shahman digital marketing portfolio - strategy, content, paid ads, and brand growth."
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  />
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shahman | Portfolio</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
-  <svg class="svg-filter" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <filter id="lensFilter">
-        <feTurbulence
-          type="fractalNoise"
-          baseFrequency="0.01 0.01"
-          numOctaves="2"
-          seed="2"
-          result="noise"
-        />
-        <feGaussianBlur in="noise" stdDeviation="2" result="blurredNoise" />
-        <feDisplacementMap
-          in="SourceGraphic"
-          in2="blurredNoise"
-          scale="18"
-          xChannelSelector="R"
-          yChannelSelector="G"
-        />
-      </filter>
-    </defs>
-  </svg>
 
-  <div class="page-shell">
-    <aside class="sidebar glass-container glass-container--rounded">
-      <div class="glass-filter"></div>
-      <div class="glass-overlay"></div>
-      <div class="glass-specular"></div>
+<div class="container">
 
-      <div class="glass-content sidebar-content">
-        <div class="brand">S</div>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">S</div>
 
         <nav class="menu">
-          <a href="#home" class="menu-item active">
-            <i class="fas fa-house"></i>
-            <span>Home</span>
-          </a>
-          <a href="#about" class="menu-item">
-            <i class="fas fa-user"></i>
-            <span>About</span>
-          </a>
-          <a href="#services" class="menu-item">
-            <i class="fas fa-briefcase"></i>
-            <span>Services</span>
-          </a>
-          <a href="#projects" class="menu-item">
-            <i class="fas fa-folder-open"></i>
-            <span>Projects</span>
-          </a>
-          <a href="#contact" class="menu-item">
-            <i class="fas fa-envelope"></i>
-            <span>Contact</span>
-          </a>
+            <ul>
+                <li class="active">
+                    <a href="#"><i class="fas fa-home"></i> Home</a>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fas fa-user"></i> About</a>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fas fa-briefcase"></i> Services</a>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fas fa-folder"></i> Projects</a>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fas fa-envelope"></i> Contact</a>
+                </li>
+            </ul>
         </nav>
 
-        <div class="profile-card">
-          <div class="avatar">SH</div>
-          <div>
-            <h3>Shahman</h3>
-            <p>Digital Marketer</p>
-          </div>
+        <div class="profile">
+            <div class="avatar">SH</div>
+            <div>
+                <h3>Shahman</h3>
+                <p>Digital Marketer</p>
+            </div>
         </div>
-      </div>
+
     </aside>
 
-    <main class="main-content">
-      <section id="home" class="hero glass-container glass-container--rounded">
-        <div class="glass-filter"></div>
-        <div class="glass-overlay"></div>
-        <div class="glass-specular"></div>
+    <!-- MAIN CONTENT -->
+    <main class="content">
 
-        <div class="glass-content hero-content">
-          <div>
-            <p class="eyebrow">DIGITAL MARKETING PORTFOLIO</p>
-            <h1>Helping brands grow through strategy, content, and campaigns.</h1>
-            <p class="hero-text">
-              I’m Shahman — a digital marketer focused on social media,
-              branding, paid ads, and content systems that turn attention into growth.
-            </p>
-          </div>
+        <header>
+            <h1>Helping brands grow with strategy & content</h1>
+            <p>I build campaigns, content, and digital presence that convert.</p>
+        </header>
 
-          <a href="#contact" class="cta-btn">Let’s Talk</a>
-        </div>
-      </section>
+        <div class="card-container">
 
-      <section class="stats-grid">
-        <div class="glass-container card">
-          <div class="glass-filter"></div>
-          <div class="glass-overlay"></div>
-          <div class="glass-specular"></div>
-          <div class="glass-content card-content">
-            <div class="icon-box"><i class="fas fa-bullhorn"></i></div>
-            <div>
-              <h3>20+</h3>
-              <p>Campaign Ideas</p>
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <div>
+                    <h3>20+</h3>
+                    <p>Campaigns</p>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <div class="glass-container card">
-          <div class="glass-filter"></div>
-          <div class="glass-overlay"></div>
-          <div class="glass-specular"></div>
-          <div class="glass-content card-content">
-            <div class="icon-box"><i class="fas fa-chart-line"></i></div>
-            <div>
-              <h3>10+</h3>
-              <p>Strategies Planned</p>
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div>
+                    <h3>10+</h3>
+                    <p>Strategies</p>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <div class="glass-container card">
-          <div class="glass-filter"></div>
-          <div class="glass-overlay"></div>
-          <div class="glass-specular"></div>
-          <div class="glass-content card-content">
-            <div class="icon-box"><i class="fas fa-users"></i></div>
-            <div>
-              <h3>5+</h3>
-              <p>Growth Projects</p>
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div>
+                    <h3>5+</h3>
+                    <p>Brands</p>
+                </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <section class="split-grid">
-        <div id="about" class="glass-container panel">
-          <div class="glass-filter"></div>
-          <div class="glass-overlay"></div>
-          <div class="glass-specular"></div>
-          <div class="glass-content panel-content">
-            <div>
-              <p class="section-label">ABOUT</p>
-              <h2>Creative direction with a performance mindset.</h2>
-              <p>
-                I help brands look sharper, communicate better, and grow with
-                stronger content, clearer messaging, and better digital strategy.
-              </p>
-            </div>
-          </div>
         </div>
 
-        <div id="services" class="glass-container panel">
-          <div class="glass-filter"></div>
-          <div class="glass-overlay"></div>
-          <div class="glass-specular"></div>
-          <div class="glass-content panel-content">
-            <div>
-              <p class="section-label">SERVICES</p>
-              <ul class="services-list">
-                <li>Content Strategy</li>
-                <li>Social Media Planning</li>
-                <li>Paid Ads Direction</li>
-                <li>Brand Messaging</li>
-                <li>Campaign Creative</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="projects" class="projects-wrap">
-        <div class="section-head">
-          <p class="section-label">SELECTED WORK</p>
-          <h2>Portfolio highlights</h2>
-        </div>
-
-        <div class="projects-grid">
-          <article class="glass-container project-card">
-            <div class="glass-filter"></div>
-            <div class="glass-overlay"></div>
-            <div class="glass-specular"></div>
-            <div class="glass-content project-content">
-              <span class="project-no">01</span>
-              <h3>Social Media Growth Plan</h3>
-              <p>
-                Developed a stronger content direction for consistency,
-                audience engagement, and brand clarity.
-              </p>
-            </div>
-          </article>
-
-          <article class="glass-container project-card">
-            <div class="glass-filter"></div>
-            <div class="glass-overlay"></div>
-            <div class="glass-specular"></div>
-            <div class="glass-content project-content">
-              <span class="project-no">02</span>
-              <h3>Paid Campaign Direction</h3>
-              <p>
-                Built messaging and creative angles for sharper clicks,
-                stronger conversion intent, and better ad structure.
-              </p>
-            </div>
-          </article>
-
-          <article class="glass-container project-card">
-            <div class="glass-filter"></div>
-            <div class="glass-overlay"></div>
-            <div class="glass-specular"></div>
-            <div class="glass-content project-content">
-              <span class="project-no">03</span>
-              <h3>Brand Positioning Refresh</h3>
-              <p>
-                Refined communication and visual direction to create a more
-                memorable digital presence.
-              </p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="contact" class="glass-container contact-panel">
-        <div class="glass-filter"></div>
-        <div class="glass-overlay"></div>
-        <div class="glass-specular"></div>
-        <div class="glass-content panel-content">
-          <div>
-            <p class="section-label">CONTACT</p>
-            <h2>Let’s build something people remember.</h2>
-            <p>Available for freelance work, collaborations, and marketing opportunities.</p>
-            <a href="mailto:your@email.com" class="contact-link">your@email.com</a>
-          </div>
-        </div>
-      </section>
     </main>
-  </div>
 
-  <script src="script.js"></script>
+</div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
