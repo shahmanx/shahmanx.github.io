@@ -2,108 +2,318 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Shahman | Portfolio</title>
-
-  <link rel="stylesheet" href="style.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shahman | Digital Marketing Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
 </head>
-
 <body>
+  <div class="bg-particles" id="particles"></div>
 
-<div class="container">
-
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-
-    <div class="logo">S</div>
-
-    <ul class="menu">
-      <li class="active" data-tab="home"><i class="fas fa-home"></i><span>Home</span></li>
-      <li data-tab="about"><i class="fas fa-user"></i><span>About</span></li>
-      <li data-tab="services"><i class="fas fa-briefcase"></i><span>Services</span></li>
-      <li data-tab="projects"><i class="fas fa-folder"></i><span>Projects</span></li>
-      <li data-tab="contact"><i class="fas fa-envelope"></i><span>Contact</span></li>
-    </ul>
-
-    <div class="profile">
-      <div class="avatar">SH</div>
-      <div>
-        <h3>Shahman</h3>
-        <p>Performance Marketer</p>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="logo">
+        <span>S</span>
       </div>
-    </div>
 
-  </aside>
+      <nav class="menu">
+        <ul>
+          <li class="active" data-tab="home">
+            <a href="#">
+              <i class="fas fa-home"></i>
+              <span>Home</span>
+            </a>
+          </li>
+          <li data-tab="about">
+            <a href="#">
+              <i class="fas fa-user"></i>
+              <span>About</span>
+            </a>
+          </li>
+          <li data-tab="services">
+            <a href="#">
+              <i class="fas fa-briefcase"></i>
+              <span>Services</span>
+            </a>
+          </li>
+          <li data-tab="projects">
+            <a href="#">
+              <i class="fas fa-folder"></i>
+              <span>Projects</span>
+            </a>
+          </li>
+          <li data-tab="contact">
+            <a href="#">
+              <i class="fas fa-envelope"></i>
+              <span>Contact</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
 
-  <!-- CONTENT -->
-  <main class="content">
-
-    <!-- HOME -->
-    <section class="tab active" id="home">
-      <h1>Performance marketing built for conversion</h1>
-      <p>I help brands grow through paid ads, website optimization, tracking, and automation.</p>
-
-      <div class="cards">
-        <div class="card">
-          <h3>Paid Ads</h3>
-          <p>Campaign setup and optimization focused on results.</p>
+      <div class="profile">
+        <div class="avatar">
+          <span>SH</span>
         </div>
-
-        <div class="card">
-          <h3>Tracking</h3>
-          <p>Lead tracking setup for real performance insights.</p>
-        </div>
-
-        <div class="card">
-          <h3>Web Editing</h3>
-          <p>WordPress, Oxygen & Elementor optimization.</p>
+        <div class="user-info">
+          <h3>Shahman</h3>
+          <p>Performance Marketer</p>
         </div>
       </div>
-    </section>
+    </aside>
 
-    <!-- ABOUT -->
-    <section class="tab" id="about">
-      <h1>About Me</h1>
-      <p>
-        I’m Shahman — a performance-focused digital marketer working across paid ads,
-        website optimization, conversion tracking, and automation.
-      </p>
-    </section>
+    <main class="content">
+      <!-- HOME -->
+      <section class="tab-panel active" id="home">
+        <header>
+          <h1>Performance marketing built for conversion</h1>
+          <p>
+            I help brands grow through paid ads, website optimization,
+            conversion tracking, email automation, and smarter digital systems.
+          </p>
+        </header>
 
-    <!-- SERVICES -->
-    <section class="tab" id="services">
-      <h1>Services</h1>
-      <div class="cards">
-        <div class="card"><h3>Paid Ads</h3></div>
-        <div class="card"><h3>Website Optimization</h3></div>
-        <div class="card"><h3>Tracking Setup</h3></div>
-        <div class="card"><h3>Email Automation</h3></div>
-        <div class="card"><h3>Chat Automation</h3></div>
-      </div>
-    </section>
+        <div class="card-container">
+          <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-bullhorn"></i>
+            </div>
+            <div class="card-info">
+              <h3>Paid Ads</h3>
+              <p>Campaign setup, optimization, and performance-focused execution.</p>
+            </div>
+          </div>
 
-    <!-- PROJECTS -->
-    <section class="tab" id="projects">
-      <h1>Projects</h1>
-      <div class="cards">
-        <div class="card"><h3>Lead Gen Campaign</h3></div>
-        <div class="card"><h3>Landing Page Optimization</h3></div>
-        <div class="card"><h3>Tracking Setup</h3></div>
-      </div>
-    </section>
+          <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="card-info">
+              <h3>Tracking</h3>
+              <p>Lead conversion tracking and reporting setup for better decisions.</p>
+            </div>
+          </div>
 
-    <!-- CONTACT -->
-    <section class="tab" id="contact">
-      <h1>Contact</h1>
-      <p>Let’s work together.</p>
-      <p><b>Email:</b> your@email.com</p>
-    </section>
+          <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="card-info">
+              <h3>Web Editing</h3>
+              <p>WordPress, Oxygen, and Elementor editing for better user flow.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  </main>
+      <!-- ABOUT -->
+      <section class="tab-panel" id="about">
+        <header>
+          <h1>About Me</h1>
+          <p>
+            I’m Shahman, a digital marketer focused heavily on performance and paid ads,
+            with hands-on experience in website editing, tracking setup, email flows,
+            and automation systems.
+          </p>
+        </header>
 
-</div>
+        <div class="card-container">
+          <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="card-info">
+              <h3>My Focus</h3>
+              <p>Performance marketing, paid media, and conversion-driven execution.</p>
+            </div>
+          </div>
 
-<script src="script.js"></script>
+          <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-screwdriver-wrench"></i>
+            </div>
+            <div class="card-info">
+              <h3>My Tools</h3>
+              <p>WordPress, Oxygen, Elementor, tracking tools, and automation platforms.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-gears"></i>
+            </div>
+            <div class="card-info">
+              <h3>My Approach</h3>
+              <p>I connect ads, websites, and automation into one measurable funnel.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section class="tab-panel" id="services">
+        <header>
+          <h1>Services</h1>
+          <p>
+            I work across acquisition, optimization, and automation to help brands
+            get better conversion performance.
+          </p>
+        </header>
+
+        <div class="card-container">
+          <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-rectangle-ad"></i>
+            </div>
+            <div class="card-info">
+              <h3>Paid Ads Management</h3>
+              <p>Campaign planning, setup, testing, and optimization for growth.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-globe"></i>
+            </div>
+            <div class="card-info">
+              <h3>Website Editing</h3>
+              <p>Front-end page updates and landing page improvements using WordPress builders.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-chart-pie"></i>
+            </div>
+            <div class="card-info">
+              <h3>Conversion Tracking</h3>
+              <p>Lead event setup and reporting structure to measure what matters.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-envelope-open-text"></i>
+            </div>
+            <div class="card-info">
+              <h3>Email Flows</h3>
+              <p>Automated email journeys designed to support nurture and follow-up.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-comments"></i>
+            </div>
+            <div class="card-info">
+              <h3>Chat Automation</h3>
+              <p>Automated lead conversations and routing using SleekFlow.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section class="tab-panel" id="projects">
+        <header>
+          <h1>Projects</h1>
+          <p>
+            Example portfolio directions based on the kind of work I do across ads,
+            websites, and automation.
+          </p>
+        </header>
+
+        <div class="card-container">
+          <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-filter-circle-dollar"></i>
+            </div>
+            <div class="card-info">
+              <h3>Lead Gen Campaign Optimization</h3>
+              <p>Improved campaign structure and messaging to support better lead quality.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-window-maximize"></i>
+            </div>
+            <div class="card-info">
+              <h3>Landing Page Improvement</h3>
+              <p>Edited page structure and content flow to support stronger conversion intent.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-chart-column"></i>
+            </div>
+            <div class="card-info">
+              <h3>Tracking Setup</h3>
+              <p>Implemented lead conversion tracking for clearer performance measurement.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-paper-plane"></i>
+            </div>
+            <div class="card-info">
+              <h3>Email Nurture Flow</h3>
+              <p>Created automated follow-up journeys to improve consistency after lead capture.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-robot"></i>
+            </div>
+            <div class="card-info">
+              <h3>SleekFlow Automation</h3>
+              <p>Built chat flows for quicker response and more structured lead handling.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="tab-panel" id="contact">
+        <header>
+          <h1>Contact</h1>
+          <p>
+            Open to freelance work, collaborations, and opportunities in performance marketing,
+            paid ads, website optimization, and marketing automation.
+          </p>
+        </header>
+
+        <div class="card-container">
+          <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="card-info">
+              <h3>Email</h3>
+              <p>your@email.com</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-briefcase"></i>
+            </div>
+            <div class="card-info">
+              <h3>Available For</h3>
+              <p>Paid ads, tracking setup, website editing, and automation projects.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
