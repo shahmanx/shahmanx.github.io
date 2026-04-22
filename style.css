@@ -4,11 +4,8 @@
   --sidebar-width: 280px;
   --sidebar-collapsed-width: 80px;
   --transition-speed: 0.3s;
-
   --glass-bg: rgba(255, 255, 255, 0.12);
-  --glass-bg-strong: rgba(255, 255, 255, 0.18);
   --glass-border: rgba(255, 255, 255, 0.24);
-
   --text-main: #ffffff;
   --text-soft: rgba(255, 255, 255, 0.78);
   --shadow-soft: 0 20px 50px rgba(18, 30, 90, 0.18);
@@ -45,7 +42,6 @@ body {
   position: relative;
 }
 
-/* floating particles */
 .bg-particles {
   position: fixed;
   inset: 0;
@@ -109,7 +105,6 @@ body {
   pointer-events: none;
 }
 
-/* shared liquid glass surfaces */
 .logo,
 .menu li,
 .profile,
@@ -215,8 +210,6 @@ body {
 
 .menu ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
 .menu li {
@@ -383,14 +376,6 @@ header p {
   color: var(--text-soft);
 }
 
-.interactive {
-  transition: transform 0.25s ease;
-}
-
-.interactive:hover {
-  transform: translateY(-3px);
-}
-
 @media (max-width: 1024px) {
   .sidebar {
     width: var(--sidebar-collapsed-width);
@@ -403,10 +388,6 @@ header p {
 
   .profile {
     justify-content: center;
-  }
-
-  .avatar {
-    margin-right: 0;
   }
 
   .content {
