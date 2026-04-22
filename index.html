@@ -1,105 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shahman | Portfolio</title>
-
-    <link rel="stylesheet" href="style.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shahman | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
-
 <body>
+  <div class="bg-particles" id="particles"></div>
 
-<div class="container">
+  <div class="container">
+    <aside class="sidebar glass">
+      <div class="logo">S</div>
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
+      <nav class="menu">
+        <ul>
+          <li class="active">
+            <a href="#"><i class="fas fa-home"></i><span>Home</span></a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-user"></i><span>About</span></a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-briefcase"></i><span>Services</span></a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-folder"></i><span>Projects</span></a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-envelope"></i><span>Contact</span></a>
+          </li>
+        </ul>
+      </nav>
 
-        <div class="logo">S</div>
-
-        <nav class="menu">
-            <ul>
-                <li class="active">
-                    <a href="#"><i class="fas fa-home"></i> Home</a>
-                </li>
-
-                <li>
-                    <a href="#"><i class="fas fa-user"></i> About</a>
-                </li>
-
-                <li>
-                    <a href="#"><i class="fas fa-briefcase"></i> Services</a>
-                </li>
-
-                <li>
-                    <a href="#"><i class="fas fa-folder"></i> Projects</a>
-                </li>
-
-                <li>
-                    <a href="#"><i class="fas fa-envelope"></i> Contact</a>
-                </li>
-            </ul>
-        </nav>
-
-        <div class="profile">
-            <div class="avatar">SH</div>
-            <div>
-                <h3>Shahman</h3>
-                <p>Digital Marketer</p>
-            </div>
+      <div class="profile glass glass-subtle interactive">
+        <div class="avatar">SH</div>
+        <div>
+          <h3>Shahman</h3>
+          <p>Digital Marketer</p>
         </div>
-
+      </div>
     </aside>
 
-    <!-- MAIN CONTENT -->
     <main class="content">
-
-        <header>
-            <h1>Helping brands grow with strategy & content</h1>
-            <p>I build campaigns, content, and digital presence that convert.</p>
-        </header>
-
-        <div class="card-container">
-
-            <div class="card">
-                <div class="card-icon">
-                    <i class="fas fa-bullhorn"></i>
-                </div>
-                <div>
-                    <h3>20+</h3>
-                    <p>Campaigns</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <div>
-                    <h3>10+</h3>
-                    <p>Strategies</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">
-                    <i class="fas fa-users"></i>
-                </div>
-                <div>
-                    <h3>5+</h3>
-                    <p>Brands</p>
-                </div>
-            </div>
-
+      <header class="hero glass interactive">
+        <div class="hero-copy">
+          <p class="eyebrow">DIGITAL MARKETING PORTFOLIO</p>
+          <h1>Helping brands grow with strategy, content, and campaigns.</h1>
+          <p class="hero-text">
+            I build campaigns, content systems, and digital presence that turn
+            attention into action.
+          </p>
         </div>
 
+        <a href="#" class="cta-btn">Let’s Talk</a>
+      </header>
+
+      <section class="card-container">
+        <div class="card glass interactive">
+          <div class="card-icon">
+            <i class="fas fa-bullhorn"></i>
+          </div>
+          <div>
+            <h3>20+</h3>
+            <p>Campaigns</p>
+          </div>
+        </div>
+
+        <div class="card glass interactive">
+          <div class="card-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div>
+            <h3>10+</h3>
+            <p>Strategies</p>
+          </div>
+        </div>
+
+        <div class="card glass interactive">
+          <div class="card-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div>
+            <h3>5+</h3>
+            <p>Brands</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="projects-grid">
+        <article class="project-card glass interactive">
+          <span class="project-no">01</span>
+          <h3>Social Media Growth Plan</h3>
+          <p>Built stronger content direction for consistency, engagement, and brand clarity.</p>
+        </article>
+
+        <article class="project-card glass interactive">
+          <span class="project-no">02</span>
+          <h3>Paid Campaign Direction</h3>
+          <p>Created messaging and creative angles focused on better click quality and conversion intent.</p>
+        </article>
+
+        <article class="project-card glass interactive">
+          <span class="project-no">03</span>
+          <h3>Brand Positioning Refresh</h3>
+          <p>Refined voice and digital presentation to make the brand feel sharper and more memorable.</p>
+        </article>
+      </section>
     </main>
+  </div>
 
-</div>
-
-<script src="script.js"></script>
-
+  <script src="script.js"></script>
 </body>
 </html>
