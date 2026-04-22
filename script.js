@@ -1,148 +1,153 @@
-const words = document.querySelectorAll(".hero h1 .word");
+        // --- TEXT SPLITTING ---
+        // Manually split hero text for animation control
+        const words = document.querySelectorAll('.hero h1 .word');
+        words.forEach(word => {
+            const text = word.innerText;
+            word.innerHTML = '';
+            text.split('').forEach(char => {
+                const span = document.createElement('span');
+                span.classList.add('char');
+                span.innerText = char;
+                word.appendChild(span);
+            });
+        });
 
-words.forEach((word) => {
-  const text = word.innerText;
-  word.innerHTML = "";
+        // --- MAGNET & CURSOR ---
+        const cursor = document.getElementById('cursor');
+        const magneticElements = document.querySelectorAll('.magnetic');
 
-  text.split("").forEach((char) => {
-    const span = document.createElement("span");
-    span.classList.add("char");
-    span.innerText = char;
-    word.appendChild(span);
-  });
-});
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
 
-const cursor = document.getElementById("cursor");
-const magneticElements = document.querySelectorAll(".magnetic");
+        window.addEventListener('mousemove', e => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
 
-let mouseX = window.innerWidth / 2;
-let mouseY = window.innerHeight / 2;
-let cursorX = mouseX;
-let cursorY = mouseY;
+        function lerp(start, end, factor) {
+            return start + (end - start) * factor;
+        }
 
-window.addEventListener("mousemove", (e) => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-});
+        function animateCursor() {
+            cursorX = lerp(cursorX, mouseX, 0.15);
+            cursorY = lerp(cursorY, mouseY, 0.15);
+            cursor.style.transform = `translate(${cursorX}px, ${cursorY}px) translate(-50%, -50%)`;
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
 
-function lerp(start, end, factor) {
-  return start + (end - start) * factor;
-}
+        magneticElements.forEach(el => {
+            el.addEventListener('mousemove', (e) => {
+                const rect = el.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                const dist = 0.5; // Magnetic strength
 
-function animateCursor() {
-  if (!cursor) return;
-  cursorX = lerp(cursorX, mouseX, 0.15);
-  cursorY = lerp(cursorY, mouseY, 0.15);
-  cursor.style.transform = `translate(${cursorX}px, ${cursorY}px) translate(-50%, -50%)`;
-  requestAnimationFrame(animateCursor);
-}
-animateCursor();
+                const moveX = (e.clientX - centerX) * dist;
+                const moveY = (e.clientY - centerY) * dist;
 
-magneticElements.forEach((el) => {
-  el.addEventListener("mousemove", (e) => {
-    const rect = el.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    const dist = 0.3;
+                el.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                cursor.classList.add('magnet');
+            });
 
-    const moveX = (e.clientX - centerX) * dist;
-    const moveY = (e.clientY - centerY) * dist;
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = 'translate(0, 0)';
+                cursor.classList.remove('magnet');
+            });
+        });
 
-    el.style.transform = `translate(${moveX}px, ${moveY}px)`;
-    if (cursor) cursor.classList.add("magnet");
-  });
+        // --- NAVBAR STATE & 3D TILT ---
+        const nav = document.querySelector('.brutal-nav');
+        let isScrolled = false;
 
-  el.addEventListener("mouseleave", () => {
-    el.style.transform = "translate(0, 0)";
-    if (cursor) cursor.classList.remove("magnet");
-  });
-});
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                if (!isScrolled) {
+                    nav.classList.add('scrolled');
+                    isScrolled = true;
+                }
+            } else {
+                if (isScrolled) {
+                    nav.classList.remove('scrolled');
+                    nav.style.transform = '';
+                    isScrolled = false;
+                }
+            }
+        });
 
-const nav = document.querySelector(".brutal-nav");
-let isScrolled = false;
+        document.addEventListener('mousemove', (e) => {
+            if (!isScrolled) return;
+            const cx = window.innerWidth / 2;
+            const cy = 100; // Pivot near top
 
-window.addEventListener("scroll", () => {
-  if (!nav) return;
+            // Subtle tilt
+            const rx = (e.clientY - cy) * 0.02;
+            const ry = (e.clientX - cx) * 0.02;
 
-  if (window.scrollY > 100) {
-    if (!isScrolled) {
-      nav.classList.add("scrolled");
-      isScrolled = true;
-    }
-  } else {
-    if (isScrolled) {
-      nav.classList.remove("scrolled");
-      nav.style.transform = "";
-      isScrolled = false;
-    }
-  }
-});
+            // Constrain
+            const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
 
-document.addEventListener("mousemove", (e) => {
-  if (!nav || !isScrolled) return;
+            nav.style.transform = `translateX(-50%) perspective(1000px) rotateX(${-clamp(rx, -10, 10)}deg) rotateY(${clamp(ry, -10, 10)}deg)`;
+        });
 
-  const cx = window.innerWidth / 2;
-  const cy = 100;
+        // --- SCROLL VELOCITY SKEW ---
+        const content = document.getElementById('scroll-content');
+        let currentScroll = 0;
+        let targetScroll = 0;
+        let skew = 0;
 
-  const rx = (e.clientY - cy) * 0.02;
-  const ry = (e.clientX - cx) * 0.02;
+        // Note: For native scroll skewing, we just monitor scroll speed
+        // We aren't hijacking scroll here (keeping it native for UX), just adding effect
+        let lastScrollTop = 0;
 
-  const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
+        function scrollLoop() {
+            const scrollTop = window.scrollY;
+            const velocity = scrollTop - lastScrollTop;
+            lastScrollTop = scrollTop;
 
-  nav.style.transform =
-    `translateX(-50%) perspective(1000px) rotateX(${-clamp(rx, -10, 10)}deg) rotateY(${clamp(ry, -10, 10)}deg)`;
-});
+            // Smooth skew approach
+            // Target skew is based on velocity
+            // We clamp it to avoid too much distortion
+            const maxSkew = 5.0;
+            const speed = Math.min(Math.max(velocity * 0.1, -maxSkew), maxSkew);
 
-const content = document.getElementById("scroll-content");
-let skew = 0;
-let lastScrollTop = 0;
+            // Lerp current skew to target speed
+            skew = lerp(skew, speed, 0.1);
 
-function scrollLoop() {
-  const scrollTop = window.scrollY;
-  const velocity = scrollTop - lastScrollTop;
-  lastScrollTop = scrollTop;
+            // round to avoid blurry pixel issues if needed, but smooth is better for transform
+            if (Math.abs(skew) > 0.01) {
+                content.style.transform = `skewY(${skew}deg)`;
+            } else {
+                content.style.transform = `skewY(0deg)`;
+            }
 
-  const maxSkew = 5.0;
-  const speed = Math.min(Math.max(velocity * 0.1, -maxSkew), maxSkew);
+            requestAnimationFrame(scrollLoop);
+        }
+        scrollLoop();
 
-  skew = lerp(skew, speed, 0.1);
+        // --- HACKER TEXT RE-INIT ---
+        const alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-  if (content) {
-    if (Math.abs(skew) > 0.01) {
-      content.style.transform = `skewY(${skew}deg)`;
-    } else {
-      content.style.transform = "skewY(0deg)";
-    }
-  }
+        document.querySelectorAll('[data-text]').forEach(link => {
+            link.addEventListener('mouseenter', event => {
+                let iter = 0;
+                const original = event.target.dataset.text;
+                clearInterval(event.target.interval);
 
-  requestAnimationFrame(scrollLoop);
-}
-scrollLoop();
+                event.target.interval = setInterval(() => {
+                    event.target.innerText = original.split("")
+                        .map((l, i) => {
+                            if (i < iter) return original[i];
+                            return alpha[Math.floor(Math.random() * 26)]
+                        })
+                        .join("");
 
-const alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-document.querySelectorAll("[data-text]").forEach((link) => {
-  link.addEventListener("mouseenter", (event) => {
-    let iter = 0;
-    const original = event.target.dataset.text;
-    clearInterval(event.target.interval);
-
-    event.target.interval = setInterval(() => {
-      event.target.innerText = original
-        .split("")
-        .map((l, i) => {
-          if (i < iter) return original[i];
-          return alpha[Math.floor(Math.random() * 26)];
-        })
-        .join("");
-
-      if (iter >= original.length) clearInterval(event.target.interval);
-      iter += 1 / 3;
-    }, 30);
-  });
-
-  link.addEventListener("mouseleave", (e) => {
-    clearInterval(e.target.interval);
-    e.target.innerText = e.target.dataset.text;
-  });
-});
+                    if (iter >= original.length) clearInterval(event.target.interval);
+                    iter += 1 / 3;
+                }, 30);
+            });
+            link.addEventListener('mouseleave', e => {
+                clearInterval(e.target.interval);
+                e.target.innerText = e.target.dataset.text;
+            });
+        });
