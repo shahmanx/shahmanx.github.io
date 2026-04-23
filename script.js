@@ -167,7 +167,6 @@ menuItems.forEach((item) => {
 });
 
 renderTab("overview");
-
 /* ── MOUSE TRAIL ── */
 const svg    = document.getElementById('trail-svg');
 const p0     = svg.querySelector('path');
