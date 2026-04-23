@@ -1,3 +1,5 @@
+import * as THREE from "https://unpkg.com/three@0.128.0/build/three.module.js";
+
 /* ── TAB CONTENT ── */
 const menuItems = document.querySelectorAll(".menu li");
 const titleEl = document.getElementById("page-title");
@@ -167,47 +169,146 @@ menuItems.forEach((item) => {
 });
 
 renderTab("overview");
-/* ── MOUSE TRAIL ── */
-const svg    = document.getElementById('trail-svg');
-const p0     = svg.querySelector('path');
-const nPaths = 180;
-const paths  = [];
-const pts    = [];
-const m      = { x: innerWidth / 2, y: innerHeight + nPaths };
 
-const xTo = gsap.quickTo(m, "x", { duration: 0.3 });
-const yTo = gsap.quickTo(m, "y", { duration: 0.3 });
+/* ── SHADER BACKGROUND ── */
+const scene = new THREE.Scene();
+const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
+camera.position.z = 1;
 
-for (let i = 0; i < nPaths; i++) {
-  const path = p0.cloneNode();
-  path.setAttribute("data-stroke-width", gsap.utils.wrapYoyo(1, nPaths / 2, i));
-  path.setAttribute("data-speed", 0.25);
-  svg.prepend(path);
-  paths.push(path);
-  pts.push({ x: innerWidth * Math.random(), y: (1 - i / nPaths) * innerHeight });
+const canvas = document.getElementById("shader-canvas");
+const renderer = new THREE.WebGLRenderer({
+  canvas,
+  antialias: true,
+  alpha: false
+});
+
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+const uniforms = {
+  u_time: { value: 0 },
+  u_resolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
+  u_mouse: { value: new THREE.Vector2(0.5, 0.5) },
+  u_color1: { value: new THREE.Vector3(0.2, 0.8, 0.6) },
+  u_color2: { value: new THREE.Vector3(0.4, 0.2, 0.7) },
+  u_color3: { value: new THREE.Vector3(0.1, 0.5, 0.9) },
+  u_speed: { value: 0.5 },
+  u_brightness: { value: 1.0 },
+  u_contrast: { value: 1.0 }
+};
+
+const vertexShader = `
+  varying vec2 vUv;
+  void main() {
+    vUv = uv;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+  }
+`;
+
+const fragmentShader = `
+  uniform float u_time;
+  uniform vec2 u_resolution;
+  uniform vec2 u_mouse;
+  uniform vec3 u_color1;
+  uniform vec3 u_color2;
+  uniform vec3 u_color3;
+  uniform float u_speed;
+  uniform float u_brightness;
+  uniform float u_contrast;
+  varying vec2 vUv;
+
+  float smoothNoise(vec2 p) {
+    vec2 i = floor(p);
+    vec2 f = fract(p);
+    vec2 u = f * f * (3.0 - 2.0 * f);
+    float a = sin(i.x * 12.9898 + i.y * 78.233 + 43758.5453) * 43758.5453;
+    float b = sin((i.x+1.0) * 12.9898 + i.y * 78.233 + 43758.5453) * 43758.5453;
+    float c = sin(i.x * 12.9898 + (i.y+1.0) * 78.233 + 43758.5453) * 43758.5453;
+    float d = sin((i.x+1.0) * 12.9898 + (i.y+1.0) * 78.233 + 43758.5453) * 43758.5453;
+    return mix(mix(fract(a), fract(b), u.x), mix(fract(c), fract(d), u.x), u.y);
+  }
+
+  void main() {
+    vec2 st = vUv;
+    float aspect = u_resolution.x / u_resolution.y;
+    st.x *= aspect;
+
+    vec2 mouse = u_mouse;
+    vec2 mouseSt = vec2(mouse.x * aspect, mouse.y);
+    vec2 toMouse = st - mouseSt;
+    float mouseInfluence = 1.0 - smoothstep(0.0, 0.75, length(toMouse));
+
+    float time = u_time * u_speed;
+
+    float wave1 = sin(st.x * 3.2 + time) * cos(st.y * 2.8 - time * 0.65);
+    float wave2 = sin(st.y * 4.5 + time * 0.85) * 0.65;
+    float wave3 = sin((st.x * 2.2 - st.y * 1.7) * 1.9 + time * 0.55) * 0.55;
+    float flow = wave1 + wave2 + wave3;
+
+    vec2 noiseCoord = st * 3.8 + u_time * 0.18 * u_speed;
+    float detail = smoothNoise(noiseCoord);
+    detail += smoothNoise(noiseCoord * 2.6) * 0.45;
+    detail *= 0.55;
+
+    vec2 center = vec2(aspect * 0.5, 0.5);
+    float radial = sin(length(st - center) * 7.2 - u_time * 0.9 * u_speed) * 0.28;
+
+    float pattern = flow * 0.62 + detail * 0.28 + radial * 0.1;
+    pattern += mouseInfluence * 0.45 * sin(u_time * 3.2 * u_speed - length(toMouse) * 14.0);
+    pattern = pattern * 0.8 + 0.5;
+    pattern = clamp(pattern, 0.0, 1.0);
+
+    float r = sin(pattern * 3.14159 * 2.0 + 0.0) * 0.5 + 0.5;
+    float g = sin(pattern * 3.14159 * 2.0 + 2.094) * 0.5 + 0.5;
+    float b = sin(pattern * 3.14159 * 2.0 + 4.188) * 0.5 + 0.5;
+
+    vec3 color = vec3(0.0);
+    color += u_color1 * r;
+    color += u_color2 * g;
+    color += u_color3 * b;
+
+    color = color / (r + g + b + 0.001);
+    color += sin(u_time * 0.6 * u_speed) * 0.025;
+    color += cos(u_time * 0.8 * u_speed) * 0.018;
+
+    float vignette = 1.0 - length(st - center) * 0.38;
+    color *= clamp(vignette, 0.68, 1.0);
+
+    color = color * u_brightness;
+    color = (color - 0.5) * u_contrast + 0.5;
+    color = clamp(color, 0.0, 1.0);
+    color = pow(color, vec3(1.0 / 1.08));
+
+    gl_FragColor = vec4(color, 1.0);
+  }
+`;
+
+const material = new THREE.ShaderMaterial({
+  uniforms,
+  vertexShader,
+  fragmentShader
+});
+
+const mesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), material);
+scene.add(mesh);
+
+window.addEventListener("mousemove", (e) => {
+  const mouseX = e.clientX / window.innerWidth;
+  const mouseY = 1.0 - (e.clientY / window.innerHeight);
+  uniforms.u_mouse.value.set(mouseX, mouseY);
+});
+
+window.addEventListener("resize", () => {
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  uniforms.u_resolution.value.set(window.innerWidth, window.innerHeight);
+});
+
+let clock = new THREE.Clock();
+
+function animate() {
+  requestAnimationFrame(animate);
+  uniforms.u_time.value += clock.getDelta();
+  renderer.render(scene, camera);
 }
 
-window.addEventListener("pointermove", (e) => {
-  xTo(e.x);
-  yTo(e.y);
-});
-
-gsap.ticker.add(() => {
-  let next = { x: m.x, y: m.y };
-  pts.forEach((pt, i) => {
-    pt.x += (next.x - pt.x) / 3;
-    pt.y += (next.y - pt.y) / 3;
-    if (i > 0) {
-      const prev = pts[i - 1];
-      const dist = Math.hypot(prev.x - pt.x, prev.y - pt.y);
-      gsap.set(paths[i], {
-        attr: {
-          d: 'M' + prev.x + ',' + prev.y + ' L' + pt.x + ',' + pt.y,
-          stroke: 'hsl(' + (200 + i) + ', 80%, 60%)',
-          'stroke-width': paths[i].dataset.strokeWidth * gsap.utils.clamp(0, 1, dist)
-        }
-      });
-    }
-    next = pt;
-  });
-});
+animate();
