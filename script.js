@@ -1,16 +1,9 @@
-import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.module.js";
-
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", function () {
   const canvas = document.getElementById("shader-canvas");
   const menuItems = document.querySelectorAll(".menu li");
   const titleEl = document.getElementById("page-title");
   const subtitleEl = document.getElementById("page-subtitle");
   const contentBody = document.getElementById("content-body");
-
-  if (!canvas || !titleEl || !subtitleEl || !contentBody) {
-    console.error("Required DOM elements were not found.");
-    return;
-  }
 
   const tabContent = {
     overview: {
@@ -164,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   menuItems.forEach((item) => {
-    item.addEventListener("click", (e) => {
+    item.addEventListener("click", function (e) {
       e.preventDefault();
       const tabId = item.dataset.tab;
       if (!tabId) return;
@@ -176,18 +169,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderTab("overview");
 
+  if (!window.THREE || !canvas) {
+    console.error("Three.js or canvas not available");
+    return;
+  }
+
   const scene = new THREE.Scene();
   const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
   camera.position.z = 1;
 
   const renderer = new THREE.WebGLRenderer({
-    canvas,
+    canvas: canvas,
     antialias: true,
     alpha: false
   });
 
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-  renderer.setSize(window.innerWidth, window.innerHeight, false);
 
   const uniforms = {
     u_time: { value: 0 },
@@ -205,11 +202,13 @@ document.addEventListener("DOMContentLoaded", () => {
     varying vec2 vUv;
     void main() {
       vUv = uv;
-      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+      gl_Position = vec4(position, 1.0);
     }
   `;
 
   const fragmentShader = `
+    precision mediump float;
+
     uniform float u_time;
     uniform vec2 u_resolution;
     uniform vec2 u_mouse;
@@ -262,9 +261,9 @@ document.addEventListener("DOMContentLoaded", () => {
       pattern = pattern * 0.8 + 0.5;
       pattern = clamp(pattern, 0.0, 1.0);
 
-      float r = sin(pattern * 6.28318530718 + 0.0) * 0.5 + 0.5;
-      float g = sin(pattern * 6.28318530718 + 2.094) * 0.5 + 0.5;
-      float b = sin(pattern * 6.28318530718 + 4.188) * 0.5 + 0.5;
+      float r = sin(pattern * 6.2831853 + 0.0) * 0.5 + 0.5;
+      float g = sin(pattern * 6.2831853 + 2.094) * 0.5 + 0.5;
+      float b = sin(pattern * 6.2831853 + 4.188) * 0.5 + 0.5;
 
       vec3 color = vec3(0.0);
       color += u_color1 * r;
@@ -288,12 +287,13 @@ document.addEventListener("DOMContentLoaded", () => {
   `;
 
   const material = new THREE.ShaderMaterial({
-    uniforms,
-    vertexShader,
-    fragmentShader
+    uniforms: uniforms,
+    vertexShader: vertexShader,
+    fragmentShader: fragmentShader
   });
 
-  const mesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), material);
+  const geometry = new THREE.PlaneBufferGeometry(2, 2);
+  const mesh = new THREE.Mesh(geometry, material);
   scene.add(mesh);
 
   function resizeRenderer() {
@@ -305,7 +305,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("resize", resizeRenderer);
 
-  window.addEventListener("pointermove", (e) => {
+  window.addEventListener("pointermove", function (e) {
     uniforms.u_mouse.value.set(
       e.clientX / window.innerWidth,
       1.0 - e.clientY / window.innerHeight
@@ -315,9 +315,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const clock = new THREE.Clock();
 
   function animate() {
+    requestAnimationFrame(animate);
     uniforms.u_time.value += clock.getDelta();
     renderer.render(scene, camera);
-    requestAnimationFrame(animate);
   }
 
   resizeRenderer();
