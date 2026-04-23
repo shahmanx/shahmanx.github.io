@@ -440,6 +440,7 @@ body {
 @media (max-width: 768px) {
   body {
     overflow: auto;
+    align-items: flex-start;
   }
 
   .container {
@@ -447,6 +448,26 @@ body {
     min-height: 100vh;
     height: auto;
     border-radius: 0;
+    align-items: stretch;
+  }
+
+  /* Sidebar sticks to left and fills full viewport height as content grows */
+  .sidebar {
+    width: var(--sidebar-collapsed-width);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    align-self: flex-start;
+    flex-shrink: 0;
+  }
+
+  .menu a span,
+  .user-info {
+    display: none;
+  }
+
+  .profile {
+    justify-content: center;
   }
 
   .content {
@@ -508,6 +529,15 @@ body {
   .project-item,
   .contact-box {
     padding: 18px 16px;
+  }
+
+  .feature-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .split-layout {
+    grid-template-columns: 1fr;
   }
 }
 
