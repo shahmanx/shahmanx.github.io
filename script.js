@@ -1,6 +1,6 @@
 import * as THREE from "https://unpkg.com/three@0.128.0/build/three.module.js";
 
-/* ── TAB CONTENT ── */
+/* tabs */
 const menuItems = document.querySelectorAll(".menu li");
 const titleEl = document.getElementById("page-title");
 const subtitleEl = document.getElementById("page-subtitle");
@@ -36,7 +36,6 @@ const tabContent = {
         </div>
       </div>`
   },
-
   background: {
     title: "Background",
     subtitle:
@@ -64,7 +63,6 @@ const tabContent = {
         </div>
       </div>`
   },
-
   expertise: {
     title: "Expertise",
     subtitle: "Core areas I focus on across marketing, websites, and automation.",
@@ -92,7 +90,6 @@ const tabContent = {
         </div>
       </div>`
   },
-
   projects: {
     title: "Projects",
     subtitle: "Selected work across campaigns, websites, and marketing systems.",
@@ -136,7 +133,6 @@ const tabContent = {
         </article>
       </div>`
   },
-
   contact: {
     title: "Contact",
     subtitle: "Open to freelance work, collaborations, and opportunities.",
@@ -161,7 +157,6 @@ menuItems.forEach((item) => {
   item.addEventListener("click", (e) => {
     e.preventDefault();
     const tabId = item.dataset.tab;
-    if (!tabId) return;
     menuItems.forEach((i) => i.classList.remove("active"));
     item.classList.add("active");
     renderTab(tabId);
@@ -170,16 +165,15 @@ menuItems.forEach((item) => {
 
 renderTab("overview");
 
-/* ── SHADER BACKGROUND ── */
+/* shader */
+const canvas = document.getElementById("shader-canvas");
 const scene = new THREE.Scene();
 const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
 camera.position.z = 1;
 
-const canvas = document.getElementById("shader-canvas");
 const renderer = new THREE.WebGLRenderer({
   canvas,
-  antialias: true,
-  alpha: false
+  antialias: true
 });
 
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -198,89 +192,89 @@ const uniforms = {
 };
 
 const vertexShader = `
-  varying vec2 vUv;
-  void main() {
-    vUv = uv;
-    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-  }
+varying vec2 vUv;
+void main() {
+  vUv = uv;
+  gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+}
 `;
 
 const fragmentShader = `
-  uniform float u_time;
-  uniform vec2 u_resolution;
-  uniform vec2 u_mouse;
-  uniform vec3 u_color1;
-  uniform vec3 u_color2;
-  uniform vec3 u_color3;
-  uniform float u_speed;
-  uniform float u_brightness;
-  uniform float u_contrast;
-  varying vec2 vUv;
+uniform float u_time;
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+uniform vec3 u_color1;
+uniform vec3 u_color2;
+uniform vec3 u_color3;
+uniform float u_speed;
+uniform float u_brightness;
+uniform float u_contrast;
+varying vec2 vUv;
 
-  float smoothNoise(vec2 p) {
-    vec2 i = floor(p);
-    vec2 f = fract(p);
-    vec2 u = f * f * (3.0 - 2.0 * f);
-    float a = sin(i.x * 12.9898 + i.y * 78.233 + 43758.5453) * 43758.5453;
-    float b = sin((i.x+1.0) * 12.9898 + i.y * 78.233 + 43758.5453) * 43758.5453;
-    float c = sin(i.x * 12.9898 + (i.y+1.0) * 78.233 + 43758.5453) * 43758.5453;
-    float d = sin((i.x+1.0) * 12.9898 + (i.y+1.0) * 78.233 + 43758.5453) * 43758.5453;
-    return mix(mix(fract(a), fract(b), u.x), mix(fract(c), fract(d), u.x), u.y);
-  }
+float smoothNoise(vec2 p) {
+  vec2 i = floor(p);
+  vec2 f = fract(p);
+  vec2 u = f * f * (3.0 - 2.0 * f);
+  float a = sin(i.x * 12.9898 + i.y * 78.233 + 43758.5453) * 43758.5453;
+  float b = sin((i.x + 1.0) * 12.9898 + i.y * 78.233 + 43758.5453) * 43758.5453;
+  float c = sin(i.x * 12.9898 + (i.y + 1.0) * 78.233 + 43758.5453) * 43758.5453;
+  float d = sin((i.x + 1.0) * 12.9898 + (i.y + 1.0) * 78.233 + 43758.5453) * 43758.5453;
+  return mix(mix(fract(a), fract(b), u.x), mix(fract(c), fract(d), u.x), u.y);
+}
 
-  void main() {
-    vec2 st = vUv;
-    float aspect = u_resolution.x / u_resolution.y;
-    st.x *= aspect;
+void main() {
+  vec2 st = vUv;
+  float aspect = u_resolution.x / u_resolution.y;
+  st.x *= aspect;
 
-    vec2 mouse = u_mouse;
-    vec2 mouseSt = vec2(mouse.x * aspect, mouse.y);
-    vec2 toMouse = st - mouseSt;
-    float mouseInfluence = 1.0 - smoothstep(0.0, 0.75, length(toMouse));
+  vec2 mouse = u_mouse;
+  vec2 mouseSt = vec2(mouse.x * aspect, mouse.y);
+  vec2 toMouse = st - mouseSt;
+  float mouseInfluence = 1.0 - smoothstep(0.0, 0.75, length(toMouse));
 
-    float time = u_time * u_speed;
+  float time = u_time * u_speed;
 
-    float wave1 = sin(st.x * 3.2 + time) * cos(st.y * 2.8 - time * 0.65);
-    float wave2 = sin(st.y * 4.5 + time * 0.85) * 0.65;
-    float wave3 = sin((st.x * 2.2 - st.y * 1.7) * 1.9 + time * 0.55) * 0.55;
-    float flow = wave1 + wave2 + wave3;
+  float wave1 = sin(st.x * 3.2 + time) * cos(st.y * 2.8 - time * 0.65);
+  float wave2 = sin(st.y * 4.5 + time * 0.85) * 0.65;
+  float wave3 = sin((st.x * 2.2 - st.y * 1.7) * 1.9 + time * 0.55) * 0.55;
+  float flow = wave1 + wave2 + wave3;
 
-    vec2 noiseCoord = st * 3.8 + u_time * 0.18 * u_speed;
-    float detail = smoothNoise(noiseCoord);
-    detail += smoothNoise(noiseCoord * 2.6) * 0.45;
-    detail *= 0.55;
+  vec2 noiseCoord = st * 3.8 + u_time * 0.18 * u_speed;
+  float detail = smoothNoise(noiseCoord);
+  detail += smoothNoise(noiseCoord * 2.6) * 0.45;
+  detail *= 0.55;
 
-    vec2 center = vec2(aspect * 0.5, 0.5);
-    float radial = sin(length(st - center) * 7.2 - u_time * 0.9 * u_speed) * 0.28;
+  vec2 center = vec2(aspect * 0.5, 0.5);
+  float radial = sin(length(st - center) * 7.2 - u_time * 0.9 * u_speed) * 0.28;
 
-    float pattern = flow * 0.62 + detail * 0.28 + radial * 0.1;
-    pattern += mouseInfluence * 0.45 * sin(u_time * 3.2 * u_speed - length(toMouse) * 14.0);
-    pattern = pattern * 0.8 + 0.5;
-    pattern = clamp(pattern, 0.0, 1.0);
+  float pattern = flow * 0.62 + detail * 0.28 + radial * 0.1;
+  pattern += mouseInfluence * 0.45 * sin(u_time * 3.2 * u_speed - length(toMouse) * 14.0);
+  pattern = pattern * 0.8 + 0.5;
+  pattern = clamp(pattern, 0.0, 1.0);
 
-    float r = sin(pattern * 3.14159 * 2.0 + 0.0) * 0.5 + 0.5;
-    float g = sin(pattern * 3.14159 * 2.0 + 2.094) * 0.5 + 0.5;
-    float b = sin(pattern * 3.14159 * 2.0 + 4.188) * 0.5 + 0.5;
+  float r = sin(pattern * 6.28318 + 0.0) * 0.5 + 0.5;
+  float g = sin(pattern * 6.28318 + 2.094) * 0.5 + 0.5;
+  float b = sin(pattern * 6.28318 + 4.188) * 0.5 + 0.5;
 
-    vec3 color = vec3(0.0);
-    color += u_color1 * r;
-    color += u_color2 * g;
-    color += u_color3 * b;
+  vec3 color = vec3(0.0);
+  color += u_color1 * r;
+  color += u_color2 * g;
+  color += u_color3 * b;
 
-    color = color / (r + g + b + 0.001);
-    color += sin(u_time * 0.6 * u_speed) * 0.025;
-    color += cos(u_time * 0.8 * u_speed) * 0.018;
+  color = color / (r + g + b + 0.001);
+  color += sin(u_time * 0.6 * u_speed) * 0.025;
+  color += cos(u_time * 0.8 * u_speed) * 0.018;
 
-    float vignette = 1.0 - length(st - center) * 0.38;
-    color *= clamp(vignette, 0.68, 1.0);
+  float vignette = 1.0 - length(st - center) * 0.38;
+  color *= clamp(vignette, 0.68, 1.0);
 
-    color = color * u_brightness;
-    color = (color - 0.5) * u_contrast + 0.5;
-    color = clamp(color, 0.0, 1.0);
-    color = pow(color, vec3(1.0 / 1.08));
+  color = color * u_brightness;
+  color = (color - 0.5) * u_contrast + 0.5;
+  color = clamp(color, 0.0, 1.0);
+  color = pow(color, vec3(1.0 / 1.08));
 
-    gl_FragColor = vec4(color, 1.0);
-  }
+  gl_FragColor = vec4(color, 1.0);
+}
 `;
 
 const material = new THREE.ShaderMaterial({
@@ -293,9 +287,10 @@ const mesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), material);
 scene.add(mesh);
 
 window.addEventListener("mousemove", (e) => {
-  const mouseX = e.clientX / window.innerWidth;
-  const mouseY = 1.0 - (e.clientY / window.innerHeight);
-  uniforms.u_mouse.value.set(mouseX, mouseY);
+  uniforms.u_mouse.value.set(
+    e.clientX / window.innerWidth,
+    1.0 - e.clientY / window.innerHeight
+  );
 });
 
 window.addEventListener("resize", () => {
@@ -303,7 +298,7 @@ window.addEventListener("resize", () => {
   uniforms.u_resolution.value.set(window.innerWidth, window.innerHeight);
 });
 
-let clock = new THREE.Clock();
+const clock = new THREE.Clock();
 
 function animate() {
   requestAnimationFrame(animate);
