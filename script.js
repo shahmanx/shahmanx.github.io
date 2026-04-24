@@ -411,10 +411,23 @@ function renderTab(tabId) {
 menuItems.forEach((item) => {
   item.addEventListener("click", (e) => {
     e.preventDefault();
+
     const tabId = item.dataset.tab;
+
     menuItems.forEach((i) => i.classList.remove("active"));
     item.classList.add("active");
+
     renderTab(tabId);
+
+    requestAnimationFrame(() => {
+      const content = document.querySelector(".content");
+
+      if (content) {
+        content.scrollTop = 0;
+      }
+
+      window.scrollTo(0, 0);
+    });
   });
 });
 
