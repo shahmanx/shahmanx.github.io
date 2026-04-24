@@ -8,9 +8,9 @@ const contentBody = document.getElementById("content-body");
 
 const tabContent = {
   overview: {
-    title: "Digital marketing, web performance, and analytics",
+    title: "Lead generation, web performance, and marketing analytics",
     subtitle:
-      "I work across paid media, website development, tracking, SEO, and automation to improve lead generation and digital performance.",
+      "I help organizations improve marketing performance through paid media, website optimization, conversion tracking, and automation.",
     html: `
       <div class="target-box">
         <h3>Target Roles</h3>
@@ -62,24 +62,24 @@ const tabContent = {
         <div class="quick-card">
           <div class="quick-icon"><i class="fas fa-bullhorn"></i></div>
           <div class="quick-copy">
-            <h3>Paid Media</h3>
-            <p>Campaign planning, media buying, reporting, and optimization across major digital ad platforms.</p>
+            <h3>Lead Generation</h3>
+            <p>Built and supported paid media journeys designed to convert traffic into qualified enquiries.</p>
           </div>
         </div>
 
         <div class="quick-card">
           <div class="quick-icon"><i class="fas fa-chart-line"></i></div>
           <div class="quick-copy">
-            <h3>Tracking & Analytics</h3>
-            <p>GA4, Google Tag Manager, user behavior tracking, attribution setup, and performance reporting.</p>
+            <h3>Performance Visibility</h3>
+            <p>Improved tracking and reporting visibility through GA4, GTM, event tracking, and attribution setup.</p>
           </div>
         </div>
 
         <div class="quick-card">
           <div class="quick-icon"><i class="fas fa-laptop-code"></i></div>
           <div class="quick-copy">
-            <h3>Web & SEO</h3>
-            <p>WordPress development, landing pages, technical SEO, Core Web Vitals, and site performance improvements.</p>
+            <h3>Web Optimization</h3>
+            <p>Improved website performance, landing page structure, mobile responsiveness, and technical SEO foundations.</p>
           </div>
         </div>
       </div>`
@@ -103,8 +103,8 @@ const tabContent = {
             landing page creation, analytics implementation, automation, and SEO improvements.
           </p>
           <p>
-            He also has experience mentoring junior digital marketers, supporting hiring decisions,
-            coordinating with stakeholders, and helping digital projects move from planning to delivery.
+            He enjoys working across both technical and marketing teams to bridge execution,
+            performance visibility, and business objectives.
           </p>
 
           <p class="cert-title">Certifications</p>
@@ -299,58 +299,115 @@ const tabContent = {
   projects: {
     title: "Selected Work",
     subtitle:
-      "Representative work areas based on real responsibilities across digital marketing, web platforms, tracking, and optimization.",
+      "Selected work areas presented as practical case-study snapshots across websites, paid media, tracking, and SEO.",
     html: `
       <div class="project-stack">
+
         <article class="project-item">
+          <span class="case-label">Web Platform</span>
           <h3>Group Website Management</h3>
-          <p>Developed and maintained more than 12 WordPress websites with attention to performance, security, technical SEO, and content structure.</p>
-          <ul class="project-points">
-            <li>Implemented Custom Post Types and Advanced Custom Fields</li>
-            <li>Improved page speed, Core Web Vitals, and mobile responsiveness</li>
-            <li>Maintained website structure for scalable content management</li>
-          </ul>
+          <p>Managed and maintained more than 12 WordPress websites across group-level digital platforms.</p>
+
+          <div class="case-grid">
+            <div class="case-block">
+              <strong>Challenge</strong>
+              <p>Multiple websites required consistent structure, performance, security, and scalable content management.</p>
+            </div>
+            <div class="case-block">
+              <strong>Action</strong>
+              <p>Implemented structured content using Custom Post Types and Advanced Custom Fields while improving technical SEO foundations.</p>
+            </div>
+            <div class="case-block">
+              <strong>Outcome</strong>
+              <p>Supported more stable website operations, better content management, improved mobile usability, and stronger performance visibility.</p>
+            </div>
+          </div>
         </article>
 
         <article class="project-item">
+          <span class="case-label">Lead Generation</span>
           <h3>Landing Page Production</h3>
-          <p>Created over 100 mobile-optimized landing pages to support lead generation for institutions and academic programmes.</p>
-          <ul class="project-points">
-            <li>Built pages for paid traffic and campaign-specific journeys</li>
-            <li>Focused on clearer information flow and conversion actions</li>
-            <li>Supported lead capture through connected marketing systems</li>
-          </ul>
+          <p>Created over 100 mobile-optimized landing pages to support paid campaigns and academic programme enquiries.</p>
+
+          <div class="case-grid">
+            <div class="case-block">
+              <strong>Challenge</strong>
+              <p>Campaign traffic needed clearer landing experiences tailored to different programmes, audiences, and conversion goals.</p>
+            </div>
+            <div class="case-block">
+              <strong>Action</strong>
+              <p>Built mobile-focused landing pages with clearer information flow, campaign-specific messaging, and lead capture integration.</p>
+            </div>
+            <div class="case-block">
+              <strong>Outcome</strong>
+              <p>Improved campaign readiness, supported lead generation, and created reusable landing page structures for ongoing marketing activity.</p>
+            </div>
+          </div>
         </article>
 
         <article class="project-item">
+          <span class="case-label">Paid Media</span>
           <h3>Multi-Platform Paid Campaigns</h3>
-          <p>Managed campaigns across Google Ads, Meta Ads, TikTok, and LinkedIn with an annual budget of more than MYR 2M.</p>
-          <ul class="project-points">
-            <li>Handled campaign setup, monitoring, and optimization</li>
-            <li>Reviewed performance data for budget and targeting decisions</li>
-            <li>Supported lead generation and brand awareness objectives</li>
-          </ul>
+          <p>Managed digital advertising across Google Ads, Meta Ads, TikTok, and LinkedIn with annual spend exceeding MYR 2M.</p>
+
+          <div class="case-grid">
+            <div class="case-block">
+              <strong>Challenge</strong>
+              <p>Campaigns needed to balance awareness, lead generation, channel performance, and budget efficiency across platforms.</p>
+            </div>
+            <div class="case-block">
+              <strong>Action</strong>
+              <p>Handled campaign setup, monitoring, reporting, budget review, and optimization based on performance data.</p>
+            </div>
+            <div class="case-block">
+              <strong>Outcome</strong>
+              <p>Supported ongoing lead generation, improved campaign visibility, and enabled better decisions on targeting, budget, and platform mix.</p>
+            </div>
+          </div>
         </article>
 
         <article class="project-item">
+          <span class="case-label">Analytics</span>
           <h3>Tracking & Reporting Implementation</h3>
           <p>Implemented GA4 and Google Tag Manager tracking across group websites to improve visibility into user behavior and campaign attribution.</p>
-          <ul class="project-points">
-            <li>Set up event and conversion tracking</li>
-            <li>Improved marketing attribution and reporting accuracy</li>
-            <li>Supported better decision-making through performance data</li>
-          </ul>
+
+          <div class="case-grid">
+            <div class="case-block">
+              <strong>Challenge</strong>
+              <p>Marketing performance required clearer tracking across websites, landing pages, and campaign journeys.</p>
+            </div>
+            <div class="case-block">
+              <strong>Action</strong>
+              <p>Set up event tracking, conversion tracking, and analytics structures using GA4 and Google Tag Manager.</p>
+            </div>
+            <div class="case-block">
+              <strong>Outcome</strong>
+              <p>Improved reporting accuracy, user behavior visibility, and marketing attribution for campaign performance review.</p>
+            </div>
+          </div>
         </article>
 
         <article class="project-item">
+          <span class="case-label">Technical SEO</span>
           <h3>Technical SEO & Site Performance</h3>
-          <p>Conducted technical SEO audits and resolved website performance issues using tools such as Screaming Frog and Google Search Console.</p>
-          <ul class="project-points">
-            <li>Reviewed crawlability, indexing, and site structure issues</li>
-            <li>Improved mobile usability and page speed</li>
-            <li>Supported stronger search visibility through technical fixes</li>
-          </ul>
+          <p>Conducted technical SEO audits and resolved site performance issues using tools such as Screaming Frog and Google Search Console.</p>
+
+          <div class="case-grid">
+            <div class="case-block">
+              <strong>Challenge</strong>
+              <p>Websites needed stronger crawlability, mobile performance, Core Web Vitals, and search-readiness.</p>
+            </div>
+            <div class="case-block">
+              <strong>Action</strong>
+              <p>Reviewed technical issues, page speed, mobile responsiveness, indexing signals, and on-site SEO structure.</p>
+            </div>
+            <div class="case-block">
+              <strong>Outcome</strong>
+              <p>Supported stronger site health, better user experience, and improved technical foundations for search performance.</p>
+            </div>
+          </div>
         </article>
+
       </div>`
   },
 
@@ -384,8 +441,8 @@ const tabContent = {
         </div>
 
         <div class="tag-list">
-          <span class="tag">Digital Marketing</span>
-          <span class="tag">Paid Media</span>
+          <span class="tag">Lead Generation</span>
+          <span class="tag">Performance Marketing</span>
           <span class="tag">WordPress</span>
           <span class="tag">GA4 / GTM</span>
           <span class="tag">Technical SEO</span>
