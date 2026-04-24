@@ -8,140 +8,394 @@ const contentBody = document.getElementById("content-body");
 
 const tabContent = {
   overview: {
-    title: "Performance marketing built for conversion",
+    title: "Digital marketing, web performance, and analytics",
     subtitle:
-      "I help brands grow through paid ads, website optimization, conversion tracking, and automation systems.",
+      "I work across paid media, website development, tracking, SEO, and automation to improve lead generation and digital performance.",
     html: `
+      <div class="target-box">
+        <h3>Target Roles</h3>
+        <p>
+          Focused on opportunities where digital marketing, performance tracking, website optimization,
+          and team coordination come together.
+        </p>
+
+        <div class="target-role-list">
+          <span class="role-pill">Digital Marketing Manager</span>
+          <span class="role-pill">Performance Marketing Manager</span>
+          <span class="role-pill">Growth Marketing Analyst</span>
+          <span class="role-pill">Web & Marketing Operations</span>
+        </div>
+
+        <div class="cta-row">
+          <a class="cta-button" href="./Shahman-Zainuddin-Resume-2025.pdf" download>
+            <i class="fas fa-download"></i>
+            Download Resume
+          </a>
+          <a class="secondary-button" href="https://www.linkedin.com/in/YOUR-LINKEDIN-USERNAME" target="_blank" rel="noopener">
+            <i class="fab fa-linkedin"></i>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <strong>MYR 2M+</strong>
+          <h3>Annual ad budget</h3>
+          <p>Managed multi-platform advertising across Google Ads, Meta Ads, TikTok, and LinkedIn.</p>
+        </div>
+
+        <div class="stat-card">
+          <strong>100+</strong>
+          <h3>Landing pages</h3>
+          <p>Created mobile-optimized landing pages for lead generation across institutions and academic programmes.</p>
+        </div>
+
+        <div class="stat-card">
+          <strong>12+</strong>
+          <h3>Websites managed</h3>
+          <p>Developed and maintained WordPress websites with focus on performance, SEO, and security.</p>
+        </div>
+      </div>
+
       <div class="quick-grid">
         <div class="quick-card">
           <div class="quick-icon"><i class="fas fa-bullhorn"></i></div>
           <div class="quick-copy">
-            <h3>Paid Ads</h3>
-            <p>Campaign setup, testing, and optimization focused on real results.</p>
+            <h3>Paid Media</h3>
+            <p>Campaign planning, media buying, reporting, and optimization across major digital ad platforms.</p>
           </div>
         </div>
+
         <div class="quick-card">
           <div class="quick-icon"><i class="fas fa-chart-line"></i></div>
           <div class="quick-copy">
-            <h3>Tracking</h3>
-            <p>Lead conversion tracking setup for better performance decisions.</p>
+            <h3>Tracking & Analytics</h3>
+            <p>GA4, Google Tag Manager, user behavior tracking, attribution setup, and performance reporting.</p>
           </div>
         </div>
+
         <div class="quick-card">
           <div class="quick-icon"><i class="fas fa-laptop-code"></i></div>
           <div class="quick-copy">
-            <h3>Web Editing</h3>
-            <p>WordPress, Oxygen, and Elementor optimization for better user flow.</p>
+            <h3>Web & SEO</h3>
+            <p>WordPress development, landing pages, technical SEO, Core Web Vitals, and site performance improvements.</p>
           </div>
         </div>
       </div>`
   },
+
   background: {
     title: "Background",
     subtitle:
-      "A mix of performance marketing, website work, and marketing systems across different projects and roles.",
+      "A practical career path across design, digital marketing, website development, analytics, and team coordination.",
     html: `
       <div class="split-layout">
         <div class="panel">
-          <h3>What I Do</h3>
-          <p>My work sits at the intersection of paid media, website optimization,
-          conversion tracking, and lead generation systems. I focus on helping
-          brands improve results through stronger campaign execution and better digital journeys.</p>
-        </div>
-        <div class="panel">
-          <h3>Tools & Platforms</h3>
-          <p>I work with WordPress, Oxygen, Elementor, lead conversion tracking,
-          automated email flows, and SleekFlow chat automation.</p>
+          <h3>Profile</h3>
+          <p>
+            Shahman is a digital marketing and analytics professional based in Cyberjaya, Selangor,
+            with more than 10 years of experience across marketing, web development, technical SEO,
+            paid media, and performance tracking.
+          </p>
+          <p>
+            His current work covers multi-platform campaign management, WordPress website development,
+            landing page creation, analytics implementation, automation, and SEO improvements.
+          </p>
+          <p>
+            He also has experience mentoring junior digital marketers, supporting hiring decisions,
+            coordinating with stakeholders, and helping digital projects move from planning to delivery.
+          </p>
+
+          <p class="cert-title">Certifications</p>
           <div class="tag-list">
-            <span class="tag">WordPress</span>
-            <span class="tag">Oxygen</span>
-            <span class="tag">Elementor</span>
-            <span class="tag">Lead Tracking</span>
-            <span class="tag">Email Flows</span>
-            <span class="tag">SleekFlow</span>
+            <span class="tag">Google Ads Certification</span>
+            <span class="tag">Google Digital Marketing & E-commerce</span>
+            <span class="tag">Facebook Blueprint Media Buying</span>
+            <span class="tag">SQL for Data Science</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Career Timeline</h3>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">2022 – Present</span>
+                <h3>Assistant Manager, Digital Marketing & Analyst</h3>
+                <p>Cyberjaya Education Group Berhad · Cyberjaya, Selangor</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">2021 – 2022</span>
+                <h3>Digital Marketing Manager</h3>
+                <p>2M World Sdn Bhd · Batu Caves, Selangor</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">2019 – 2020</span>
+                <h3>Digital Marketing Specialist</h3>
+                <p>BioEZ Resources · Cyberjaya, Selangor</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">2016 – 2018</span>
+                <h3>Multimedia Designer</h3>
+                <p>Dasar Jati Sdn Bhd · Bandar Baru Bangi, Selangor</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>`
   },
+
   expertise: {
     title: "Expertise",
-    subtitle: "Core areas I focus on across marketing, websites, and automation.",
+    subtitle:
+      "Core areas built from hands-on experience across campaigns, websites, tracking, SEO, and marketing systems.",
     html: `
       <div class="feature-list">
+
         <div class="feature-row">
-          <div class="feature-title"><i class="fas fa-rectangle-ad"></i><h3>Paid Ads</h3></div>
-          <div class="feature-body"><p>Campaign strategy, testing, and optimization focused on performance and ROI.</p></div>
+          <div class="feature-top">
+            <div class="feature-title">
+              <i class="fas fa-rectangle-ad"></i>
+              <h3>Paid Media & Campaigns</h3>
+            </div>
+            <div class="feature-body">
+              <p>Planning, managing, and optimizing campaigns across Google Ads, Meta Ads, TikTok, and LinkedIn with focus on lead generation, budget control, and performance reporting.</p>
+            </div>
+          </div>
+          <div class="tag-list feature-tags">
+            <span class="tag">Google Ads</span>
+            <span class="tag">Meta Ads</span>
+            <span class="tag">TikTok Ads</span>
+            <span class="tag">LinkedIn Ads</span>
+          </div>
         </div>
+
         <div class="feature-row">
-          <div class="feature-title"><i class="fas fa-globe"></i><h3>Website Editing</h3></div>
-          <div class="feature-body"><p>Landing page improvements and front-end edits using WordPress, Oxygen, and Elementor.</p></div>
+          <div class="feature-top">
+            <div class="feature-title">
+              <i class="fas fa-globe"></i>
+              <h3>Website Development</h3>
+            </div>
+            <div class="feature-body">
+              <p>Developing and maintaining websites using modern CMS platforms, structured content systems, and performance-focused implementation.</p>
+            </div>
+          </div>
+          <div class="tag-list feature-tags">
+            <span class="tag">WordPress</span>
+            <span class="tag">Shopify</span>
+            <span class="tag">WooCommerce</span>
+            <span class="tag">Elementor</span>
+            <span class="tag">Oxygen</span>
+            <span class="tag">Bricks</span>
+            <span class="tag">Webflow</span>
+          </div>
         </div>
+
         <div class="feature-row">
-          <div class="feature-title"><i class="fas fa-chart-pie"></i><h3>Conversion Tracking</h3></div>
-          <div class="feature-body"><p>Lead tracking setup for better attribution and decision making.</p></div>
+          <div class="feature-top">
+            <div class="feature-title">
+              <i class="fas fa-chart-pie"></i>
+              <h3>Analytics & Tracking</h3>
+            </div>
+            <div class="feature-body">
+              <p>Implementing tracking, event measurement, attribution setups, and reporting systems across websites and marketing campaigns.</p>
+            </div>
+          </div>
+          <div class="tag-list feature-tags">
+            <span class="tag">Google Analytics 4</span>
+            <span class="tag">Google Tag Manager</span>
+            <span class="tag">Looker Studio</span>
+            <span class="tag">Google Search Console</span>
+          </div>
         </div>
+
         <div class="feature-row">
-          <div class="feature-title"><i class="fas fa-envelope-open-text"></i><h3>Email Automation</h3></div>
-          <div class="feature-body"><p>Structured email flows to support lead nurture and follow-up.</p></div>
+          <div class="feature-top">
+            <div class="feature-title">
+              <i class="fas fa-magnifying-glass-chart"></i>
+              <h3>Technical SEO</h3>
+            </div>
+            <div class="feature-body">
+              <p>Conducting audits, resolving technical issues, and improving site health, performance, and search visibility.</p>
+            </div>
+          </div>
+          <div class="tag-list feature-tags">
+            <span class="tag">Screaming Frog</span>
+            <span class="tag">Ahrefs</span>
+            <span class="tag">SEMrush</span>
+          </div>
         </div>
+
         <div class="feature-row">
-          <div class="feature-title"><i class="fas fa-comments"></i><h3>Chat Automation</h3></div>
-          <div class="feature-body"><p>Automated lead conversations and routing using SleekFlow.</p></div>
+          <div class="feature-top">
+            <div class="feature-title">
+              <i class="fas fa-code"></i>
+              <h3>Web & Infrastructure</h3>
+            </div>
+            <div class="feature-body">
+              <p>Managing hosting environments, performance layers, and front-end structure for stable and optimized website delivery.</p>
+            </div>
+          </div>
+          <div class="tag-list feature-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">cPanel</span>
+            <span class="tag">Cloudflare</span>
+          </div>
         </div>
+
+        <div class="feature-row">
+          <div class="feature-top">
+            <div class="feature-title">
+              <i class="fas fa-envelope-open-text"></i>
+              <h3>CRM & Automation</h3>
+            </div>
+            <div class="feature-body">
+              <p>Supporting lead capture, nurture workflows, and marketing automation across email, CRM, and communication platforms.</p>
+            </div>
+          </div>
+          <div class="tag-list feature-tags">
+            <span class="tag">Mailchimp</span>
+            <span class="tag">Constant Contact</span>
+            <span class="tag">SleekFlow</span>
+            <span class="tag">Salesforce</span>
+          </div>
+        </div>
+
+        <div class="feature-row">
+          <div class="feature-top">
+            <div class="feature-title">
+              <i class="fas fa-users-gear"></i>
+              <h3>Collaboration & Design</h3>
+            </div>
+            <div class="feature-body">
+              <p>Coordinating projects, supporting workflows, and working with design and development teams across digital initiatives.</p>
+            </div>
+          </div>
+          <div class="tag-list feature-tags">
+            <span class="tag">Jira</span>
+            <span class="tag">Figma</span>
+          </div>
+        </div>
+
       </div>`
   },
+
   projects: {
-    title: "Projects",
-    subtitle: "Selected work across campaigns, websites, and marketing systems.",
+    title: "Selected Work",
+    subtitle:
+      "Representative work areas based on real responsibilities across digital marketing, web platforms, tracking, and optimization.",
     html: `
       <div class="project-stack">
         <article class="project-item">
-          <h3>Lead Generation Campaign</h3>
-          <p>Improved campaign structure and targeting for better lead quality.</p>
+          <h3>Group Website Management</h3>
+          <p>Developed and maintained more than 12 WordPress websites with attention to performance, security, technical SEO, and content structure.</p>
           <ul class="project-points">
-            <li>Sharper targeting direction</li>
-            <li>Improved messaging alignment</li>
-            <li>Better campaign structure for optimization</li>
+            <li>Implemented Custom Post Types and Advanced Custom Fields</li>
+            <li>Improved page speed, Core Web Vitals, and mobile responsiveness</li>
+            <li>Maintained website structure for scalable content management</li>
           </ul>
         </article>
+
         <article class="project-item">
-          <h3>Landing Page Optimization</h3>
-          <p>Enhanced layout and content flow to increase conversion rates.</p>
+          <h3>Landing Page Production</h3>
+          <p>Created over 100 mobile-optimized landing pages to support lead generation for institutions and academic programmes.</p>
           <ul class="project-points">
-            <li>Cleaner information hierarchy</li>
-            <li>Stronger CTA placement</li>
-            <li>Improved user journey on-page</li>
+            <li>Built pages for paid traffic and campaign-specific journeys</li>
+            <li>Focused on clearer information flow and conversion actions</li>
+            <li>Supported lead capture through connected marketing systems</li>
           </ul>
         </article>
+
         <article class="project-item">
-          <h3>Tracking Implementation</h3>
-          <p>Set up lead tracking systems for clearer performance insights.</p>
+          <h3>Multi-Platform Paid Campaigns</h3>
+          <p>Managed campaigns across Google Ads, Meta Ads, TikTok, and LinkedIn with an annual budget of more than MYR 2M.</p>
           <ul class="project-points">
-            <li>Lead event tracking</li>
-            <li>Improved attribution clarity</li>
-            <li>Better reporting structure</li>
+            <li>Handled campaign setup, monitoring, and optimization</li>
+            <li>Reviewed performance data for budget and targeting decisions</li>
+            <li>Supported lead generation and brand awareness objectives</li>
           </ul>
         </article>
+
         <article class="project-item">
-          <h3>Email Flow Setup</h3>
-          <p>Built automated email sequences to improve follow-up consistency.</p>
+          <h3>Tracking & Reporting Implementation</h3>
+          <p>Implemented GA4 and Google Tag Manager tracking across group websites to improve visibility into user behavior and campaign attribution.</p>
           <ul class="project-points">
-            <li>Follow-up automation logic</li>
-            <li>Clear nurture stages</li>
-            <li>More consistent lead communication</li>
+            <li>Set up event and conversion tracking</li>
+            <li>Improved marketing attribution and reporting accuracy</li>
+            <li>Supported better decision-making through performance data</li>
+          </ul>
+        </article>
+
+        <article class="project-item">
+          <h3>Technical SEO & Site Performance</h3>
+          <p>Conducted technical SEO audits and resolved website performance issues using tools such as Screaming Frog and Google Search Console.</p>
+          <ul class="project-points">
+            <li>Reviewed crawlability, indexing, and site structure issues</li>
+            <li>Improved mobile usability and page speed</li>
+            <li>Supported stronger search visibility through technical fixes</li>
           </ul>
         </article>
       </div>`
   },
+
   contact: {
     title: "Contact",
-    subtitle: "Open to freelance work, collaborations, and opportunities.",
+    subtitle:
+      "Open to digital marketing, performance marketing, website, analytics, and growth-focused opportunities.",
     html: `
       <div class="contact-box">
-        <h3>Let's Work Together</h3>
-        <p>I'm available for paid ads, website optimization, tracking, and automation projects.</p>
-        <p class="contact-line">Email: </p>
-        <a href="mailto:shahmanzainuddin@gmail.com">shahmanzainuddin@gmail.com </a>
+        <h3>Let’s Connect</h3>
+        <p>
+          I’m open to roles and projects involving digital marketing, paid media,
+          website development, analytics implementation, technical SEO, and marketing automation.
+        </p>
+
+        <p class="contact-line">Location:</p>
+        <p>Based in Cyberjaya, Selangor · Open to full-time, hybrid, and remote opportunities.</p>
+
+        <p class="contact-line">Email:</p>
+        <a class="contact-link" href="mailto:shahmanzainuddin@gmail.com">shahmanzainuddin@gmail.com</a>
+
+        <div class="cta-row">
+          <a class="cta-button" href="./Shahman-Zainuddin-Resume-2025.pdf" download>
+            <i class="fas fa-download"></i>
+            Download Resume
+          </a>
+          <a class="secondary-button" href="https://www.linkedin.com/in/YOUR-LINKEDIN-USERNAME" target="_blank" rel="noopener">
+            <i class="fab fa-linkedin"></i>
+            LinkedIn
+          </a>
+        </div>
+
+        <div class="tag-list">
+          <span class="tag">Digital Marketing</span>
+          <span class="tag">Paid Media</span>
+          <span class="tag">WordPress</span>
+          <span class="tag">GA4 / GTM</span>
+          <span class="tag">Technical SEO</span>
+          <span class="tag">Marketing Automation</span>
+        </div>
+
+        <p class="note-text">
+          This portfolio was built as a lightweight, responsive web experience using HTML, CSS,
+          JavaScript, and WebGL shader effects.
+        </p>
       </div>`
   }
 };
