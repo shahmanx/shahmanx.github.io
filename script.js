@@ -341,7 +341,7 @@ const tabContent = {
     html: `
       <div class="project-stack">
 
-        <article class="project-item">
+        <article class="project-item" data-case="web">
           <span class="case-label">Web Platform</span>
           <h3>Group Website Management</h3>
           <p>Managed and maintained more than 12 WordPress websites across group-level digital platforms.</p>
@@ -362,7 +362,7 @@ const tabContent = {
           </div>
         </article>
 
-        <article class="project-item">
+        <article class="project-item" data-case="landing">
           <span class="case-label">Lead Generation</span>
           <h3>Landing Page Production</h3>
           <p>Created over 100 mobile-optimized landing pages to support paid campaigns and academic programme enquiries.</p>
@@ -383,7 +383,7 @@ const tabContent = {
           </div>
         </article>
 
-        <article class="project-item">
+        <article class="project-item" data-case="paid">
           <span class="case-label">Paid Media</span>
           <h3>Multi-Platform Paid Campaigns</h3>
           <p>Managed digital advertising across Google Ads, Meta Ads, TikTok, and LinkedIn with annual spend exceeding MYR 2M.</p>
@@ -404,7 +404,7 @@ const tabContent = {
           </div>
         </article>
 
-        <article class="project-item">
+        <article class="project-item" data-case="tracking">
           <span class="case-label">Analytics</span>
           <h3>Tracking & Reporting Implementation</h3>
           <p>Implemented GA4 and Google Tag Manager tracking across group websites to improve visibility into user behavior and campaign attribution.</p>
@@ -425,7 +425,7 @@ const tabContent = {
           </div>
         </article>
 
-        <article class="project-item">
+        <article class="project-item" data-case="seo">
           <span class="case-label">Technical SEO</span>
           <h3>Technical SEO & Site Performance</h3>
           <p>Conducted technical SEO audits and resolved site performance issues using tools such as Screaming Frog and Google Search Console.</p>
@@ -455,9 +455,9 @@ const tabContent = {
       "Open to digital marketing, performance marketing, website, analytics, and growth-focused opportunities.",
     html: `
       <div class="contact-box">
-        <h3>Let’s Connect</h3>
+        <h3>Let's Connect</h3>
         <p>
-          I’m open to roles and projects involving digital marketing, paid media,
+          I'm open to roles and projects involving digital marketing, paid media,
           website development, analytics implementation, technical SEO, and marketing automation.
         </p>
 
@@ -495,12 +495,196 @@ const tabContent = {
   }
 };
 
+/* case studies */
+const caseOrder = ["paid", "tracking", "web", "landing", "seo"];
+let activeCaseIndex = 0;
+
+const caseStudies = {
+  paid: {
+    label: "Paid Media",
+    title: "Multi-Platform Paid Campaigns",
+    intro: "Managed digital advertising across Google Ads, Meta Ads, TikTok, and LinkedIn with annual spend exceeding MYR 2M.",
+    image: "images/case-paid.jpg",
+    metrics: [
+      ["MYR 2M+", "Annual ad spend"],
+      ["4", "Major ad platforms"],
+      ["KPI", "Performance monitoring"]
+    ],
+    challenge: "Campaigns required balancing lead generation, budget efficiency, and performance visibility across multiple platforms.",
+    action: "Handled campaign setup, monitoring, optimization, reporting, and budget allocation across channels.",
+    outcome: "Supported consistent lead generation and improved visibility into campaign performance, enabling better decisions across platforms.",
+    tools: ["Google Ads", "Meta Ads", "TikTok Ads", "LinkedIn Ads", "GA4"]
+  },
+
+  tracking: {
+    label: "Analytics",
+    title: "Tracking & Reporting Implementation",
+    intro: "Implemented GA4 and Google Tag Manager tracking across multiple websites to improve marketing performance visibility.",
+    image: "images/case-tracking.jpg",
+    metrics: [
+      ["GA4", "User behavior tracking"],
+      ["GTM", "Conversion events"],
+      ["Attribution", "Campaign visibility"]
+    ],
+    challenge: "Lack of structured tracking made it difficult to measure user behavior, conversions, and campaign effectiveness.",
+    action: "Set up GA4 events, conversion tracking, and GTM configurations to capture key user interactions and campaign data.",
+    outcome: "Improved reporting accuracy and enabled clearer insights into user behavior, conversion paths, and campaign attribution.",
+    tools: ["GA4", "Google Tag Manager", "Looker Studio", "Search Console"]
+  },
+
+  web: {
+    label: "Web Platform",
+    title: "Group Website Management",
+    intro: "Managed and maintained more than 12 WordPress websites across group-level digital platforms.",
+    image: "images/case-web.jpg",
+    metrics: [
+      ["12+", "Websites managed"],
+      ["CMS", "Structured content"],
+      ["SEO", "Performance foundations"]
+    ],
+    challenge: "Multiple websites required consistent structure, performance optimization, security, and scalable content management.",
+    action: "Maintained site performance, implemented structured content systems, and ensured SEO best practices across platforms.",
+    outcome: "Improved website stability, content management efficiency, and overall performance across multiple sites.",
+    tools: ["WordPress", "ACF", "Custom Post Types", "Search Console"]
+  },
+
+  landing: {
+    label: "Lead Generation",
+    title: "Landing Page Production",
+    intro: "Created over 100 mobile-optimized landing pages to support lead generation campaigns.",
+    image: "images/case-landing.jpg",
+    metrics: [
+      ["100+", "Landing pages"],
+      ["Mobile", "Optimized journeys"],
+      ["Lead Gen", "Capture integration"]
+    ],
+    challenge: "Campaign traffic required targeted landing pages aligned with specific programmes, audiences, and conversion goals.",
+    action: "Designed and built landing pages with clear structure, mobile optimization, and integrated lead capture systems.",
+    outcome: "Improved campaign readiness and supported consistent lead generation across multiple campaigns.",
+    tools: ["WordPress", "Elementor", "GA4", "GTM"]
+  },
+
+  seo: {
+    label: "Technical SEO",
+    title: "Technical SEO & Site Performance",
+    intro: "Conducted technical SEO audits and resolved performance issues to improve website health and search readiness.",
+    image: "images/case-seo.jpg",
+    metrics: [
+      ["CWV", "Core Web Vitals"],
+      ["SEO", "Site health"],
+      ["Mobile", "Performance readiness"]
+    ],
+    challenge: "Websites required better crawlability, mobile performance, and adherence to technical SEO standards.",
+    action: "Audited site structure, page speed, indexing issues, and Core Web Vitals using SEO tools.",
+    outcome: "Improved technical foundations, site performance, and overall search-readiness.",
+    tools: ["Screaming Frog", "Search Console", "Ahrefs", "SEMrush"]
+  }
+};
+
+function initCaseStudyModal() {
+  const modal = document.getElementById("caseModal");
+  if (!modal) return;
+
+  const closeBtn = document.getElementById("modalClose");
+  const prevBtn = document.getElementById("modalPrev");
+  const nextBtn = document.getElementById("modalNext");
+
+  function openCase(caseId) {
+    const data = caseStudies[caseId];
+    if (!data) return;
+
+    activeCaseIndex = caseOrder.indexOf(caseId);
+
+    document.getElementById("modalLabel").textContent = data.label;
+    document.getElementById("modalTitle").textContent = data.title;
+    document.getElementById("modalIntro").textContent = data.intro;
+
+    const img = document.getElementById("modalImage");
+    img.src = data.image;
+    img.alt = data.title;
+
+    document.getElementById("modalChallenge").textContent = data.challenge;
+    document.getElementById("modalAction").textContent = data.action;
+    document.getElementById("modalOutcome").textContent = data.outcome;
+
+    document.getElementById("modalMetrics").innerHTML = data.metrics
+      .map(([value, text]) => `
+        <div class="modal-metric">
+          <strong>${value}</strong>
+          <span>${text}</span>
+        </div>
+      `)
+      .join("");
+
+    document.getElementById("modalTags").innerHTML = data.tools
+      .map((tool) => `<span class="tag">${tool}</span>`)
+      .join("");
+
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal() {
+    modal.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+
+  function showNext() {
+    activeCaseIndex = (activeCaseIndex + 1) % caseOrder.length;
+    openCase(caseOrder[activeCaseIndex]);
+  }
+
+  function showPrev() {
+    activeCaseIndex = (activeCaseIndex - 1 + caseOrder.length) % caseOrder.length;
+    openCase(caseOrder[activeCaseIndex]);
+  }
+
+  document.querySelectorAll(".project-item[data-case]").forEach((card) => {
+    card.addEventListener("click", () => openCase(card.dataset.case));
+  });
+
+  closeBtn.addEventListener("click", closeModal);
+  nextBtn.addEventListener("click", showNext);
+  prevBtn.addEventListener("click", showPrev);
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (!modal.classList.contains("active")) return;
+    if (e.key === "Escape") closeModal();
+    if (e.key === "ArrowRight") showNext();
+    if (e.key === "ArrowLeft") showPrev();
+  });
+
+  let startX = 0;
+
+  modal.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  modal.addEventListener("touchend", (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+
+    if (Math.abs(diff) > 60) {
+      if (diff > 0) showNext();
+      else showPrev();
+    }
+  });
+}
+
+/* render tab */
 function renderTab(tabId) {
   const data = tabContent[tabId];
   if (!data) return;
   titleEl.textContent = data.title;
   subtitleEl.textContent = data.subtitle;
   contentBody.innerHTML = data.html;
+  if (tabId === "projects") {
+    initCaseStudyModal();
+  }
 }
 
 menuItems.forEach((item) => {
