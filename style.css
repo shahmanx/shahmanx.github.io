@@ -910,3 +910,173 @@ body {
     padding: 18px 16px;
   }
 }
+
+/* ===== CASE STUDY MODAL ===== */
+
+.project-item {
+  cursor: pointer;
+  position: relative;
+}
+
+.project-item::after {
+  content: "View case study";
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 12px;
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+.project-highlight {
+  margin-bottom: 14px;
+  color: #fff !important;
+  font-weight: 600;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.68);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-card {
+  width: min(960px, 100%);
+  max-height: 86vh;
+  overflow-y: auto;
+  border-radius: 24px;
+  padding: 28px;
+  background: rgba(18, 18, 28, 0.9);
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.45);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+.modal-title h2 {
+  font-size: 28px;
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+
+.modal-title p {
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+.modal-close {
+  border: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #fff;
+  background: rgba(255,255,255,0.12);
+  font-size: 22px;
+}
+
+.modal-image {
+  margin-top: 18px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.05);
+}
+
+.modal-image img {
+  width: 100%;
+  display: block;
+}
+
+.modal-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.modal-metric {
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.modal-metric strong {
+  display: block;
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+.modal-metric span {
+  font-size: 13px;
+  color: var(--text-soft);
+}
+
+.modal-section {
+  margin-top: 22px;
+}
+
+.modal-section h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.modal-section p {
+  color: var(--text-soft);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.modal-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.modal-nav button {
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  padding: 11px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .modal-overlay {
+    padding: 14px;
+  }
+
+  .modal-card {
+    max-height: 82vh;
+    padding: 22px 18px;
+    border-radius: 20px;
+  }
+
+  .modal-title h2 {
+    font-size: 22px;
+  }
+
+  .modal-metrics {
+    grid-template-columns: 1fr;
+  }
+}
