@@ -79,14 +79,14 @@ const tabContent = {
 
         <div class="award-card">
           <div class="award-icon">🏅</div>
-          <h3>Best Architect Award</h3>
+          <h3>Automation Architect Award</h3>
           <p>
-            External vendor recognition for website architecture, technical implementation,
-            and structured digital delivery.
+           Awarded by SleekFlow for building the best-performing WhatsApp automation flow among partner implementations,
+           leveraging chatbot-driven lead engagement and conversion.
           </p>
 
           <div class="award-image">
-            <img src="images/MBA_ODL.png" alt="Best Architect Award">
+            <img src="images/sf.webp" alt="Best Architect Award">
           </div>
 
           <p class="image-caption">
