@@ -58,6 +58,43 @@ const tabContent = {
         </div>
       </div>
 
+
+      <div class="awards-grid">
+        <div class="award-card">
+          <div class="award-icon">🏆</div>
+          <h3>Growth Marketing Award</h3>
+          <p>
+            Recognized for driving digital marketing performance, campaign execution,
+            and growth-focused initiatives.
+          </p>
+
+          <div class="award-image">
+            <img src="images/OSH.png" alt="Growth Marketing Award">
+          </div>
+
+          <p class="image-caption">
+            Recognition for growth marketing and campaign performance.
+          </p>
+        </div>
+
+        <div class="award-card">
+          <div class="award-icon">🏅</div>
+          <h3>Best Architect Award</h3>
+          <p>
+            External vendor recognition for website architecture, technical implementation,
+            and structured digital delivery.
+          </p>
+
+          <div class="award-image">
+            <img src="images/MBA_ODL.png" alt="Best Architect Award">
+          </div>
+
+          <p class="image-caption">
+            Vendor recognition for technical architecture and implementation quality.
+          </p>
+        </div>
+      </div>
+
       <div class="quick-grid">
         <div class="quick-card">
           <div class="quick-icon"><i class="fas fa-bullhorn"></i></div>
