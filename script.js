@@ -27,7 +27,7 @@ const tabContent = {
         </div>
 
         <div class="cta-row">
-          <a class="cta-button" href="./Shahman-Zainuddin-Resume-2025.pdf" download>
+          <a class="cta-button" href="https://drive.google.com/file/d/1UfRExAee9v8rdPujEgDMkDtEHpR8MaH-/view?usp=sharing" download>
             <i class="fas fa-download"></i>
             Download Resume
           </a>
@@ -431,7 +431,7 @@ const tabContent = {
         <a class="contact-link" href="mailto:shahmanzainuddin@gmail.com">shahmanzainuddin@gmail.com</a>
 
         <div class="cta-row">
-          <a class="cta-button" href="./Shahman-Zainuddin-Resume-2025.pdf" download>
+          <a class="cta-button" href="https://drive.google.com/file/d/1UfRExAee9v8rdPujEgDMkDtEHpR8MaH-/view?usp=sharing" download>
             <i class="fas fa-download"></i>
             Download Resume
           </a>
