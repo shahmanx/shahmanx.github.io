@@ -53,32 +53,38 @@
   </div>
 
   <!-- Case Study Modal -->
-  <div id="caseModal">
-    <div class="modal-inner">
-      <button id="modalClose"><i class="fas fa-times"></i></button>
+  <div id="caseModal" class="modal-overlay">
+    <div class="modal-card">
 
       <div class="modal-header">
-        <span id="modalLabel" class="case-label"></span>
-        <h2 id="modalTitle"></h2>
-        <p id="modalIntro"></p>
+        <div class="modal-title">
+          <span id="modalLabel" class="case-label"></span>
+          <h2 id="modalTitle"></h2>
+          <p id="modalIntro"></p>
+        </div>
+        <button id="modalClose" class="modal-close"><i class="fas fa-times"></i></button>
       </div>
 
-      <img id="modalImage" src="" alt="" />
+      <div class="modal-image">
+        <img id="modalImage" src="" alt="" />
+      </div>
 
       <div id="modalMetrics" class="modal-metrics"></div>
 
-      <div class="modal-body">
-        <div class="case-block">
-          <strong>Challenge</strong>
-          <p id="modalChallenge"></p>
-        </div>
-        <div class="case-block">
-          <strong>Action</strong>
-          <p id="modalAction"></p>
-        </div>
-        <div class="case-block">
-          <strong>Outcome</strong>
-          <p id="modalOutcome"></p>
+      <div class="modal-section">
+        <div class="case-grid">
+          <div class="case-block">
+            <strong>Challenge</strong>
+            <p id="modalChallenge"></p>
+          </div>
+          <div class="case-block">
+            <strong>Action</strong>
+            <p id="modalAction"></p>
+          </div>
+          <div class="case-block">
+            <strong>Outcome</strong>
+            <p id="modalOutcome"></p>
+          </div>
         </div>
       </div>
 
@@ -88,6 +94,7 @@
         <button id="modalPrev"><i class="fas fa-arrow-left"></i> Prev</button>
         <button id="modalNext">Next <i class="fas fa-arrow-right"></i></button>
       </div>
+
     </div>
   </div>
 
