@@ -31,7 +31,7 @@ const tabContent = {
             <i class="fas fa-download"></i>
             Download Resume
           </a>
-          <a class="secondary-button" href="https://www.linkedin.com/in/YOUR-LINKEDIN-USERNAME" target="_blank" rel="noopener">
+          <a class="secondary-button" href="https://www.linkedin.com/in/shahman-zainuddin-72016723a/" target="_blank" rel="noopener">
             <i class="fab fa-linkedin"></i>
             LinkedIn
           </a>
@@ -112,7 +112,7 @@ const tabContent = {
             <span class="tag">Google Ads Certification</span>
             <span class="tag">Google Digital Marketing & E-commerce</span>
             <span class="tag">Facebook Blueprint Media Buying</span>
-            <span class="tag">Bach. Creative Multimedia University <i>Sultan Abdul Halim Mu'adzam Shah International Islamic University</i></span>
+            <span class="tag">Bach. Creative Multimedia <br><i>University Sultan Abdul Halim Mu'adzam Shah International Islamic University</br></i></span>
           </div>
         </div>
 
