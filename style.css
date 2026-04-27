@@ -886,7 +886,7 @@ body {
   width: 100%;
   display: block;
   transition: transform 0.3s ease;
-  height: 180px;
+  height: 90%;
   object-fit: cover;
 }
 
