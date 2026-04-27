@@ -4,19 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shahman | Digital Marketing Portfolio</title>
-
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
   <canvas id="shader-canvas"></canvas>
-
   <div class="container">
     <aside class="sidebar">
       <div class="logo">
-  <img src="images/profile.jpg" alt="Shahman">
-</div>
-
+        <img src="images/profile.jpg" alt="Shahman">
+      </div>
       <nav class="menu">
         <ul>
           <li class="active" data-tab="overview">
@@ -36,7 +33,6 @@
           </li>
         </ul>
       </nav>
-
       <div class="profile">
         <div class="avatar">SH</div>
         <div class="user-info">
@@ -45,7 +41,6 @@
         </div>
       </div>
     </aside>
-
     <main class="content">
       <header class="page-header">
         <h1 id="page-title">Lead generation, web performance, and marketing analytics</h1>
@@ -53,9 +48,47 @@
           I help organizations improve marketing performance through paid media, website optimization, conversion tracking, and automation.
         </p>
       </header>
-
       <div id="content-body"></div>
     </main>
+  </div>
+
+  <!-- Case Study Modal -->
+  <div id="caseModal">
+    <div class="modal-inner">
+      <button id="modalClose"><i class="fas fa-times"></i></button>
+
+      <div class="modal-header">
+        <span id="modalLabel" class="case-label"></span>
+        <h2 id="modalTitle"></h2>
+        <p id="modalIntro"></p>
+      </div>
+
+      <img id="modalImage" src="" alt="" />
+
+      <div id="modalMetrics" class="modal-metrics"></div>
+
+      <div class="modal-body">
+        <div class="case-block">
+          <strong>Challenge</strong>
+          <p id="modalChallenge"></p>
+        </div>
+        <div class="case-block">
+          <strong>Action</strong>
+          <p id="modalAction"></p>
+        </div>
+        <div class="case-block">
+          <strong>Outcome</strong>
+          <p id="modalOutcome"></p>
+        </div>
+      </div>
+
+      <div id="modalTags" class="tag-list"></div>
+
+      <div class="modal-nav">
+        <button id="modalPrev"><i class="fas fa-arrow-left"></i> Prev</button>
+        <button id="modalNext">Next <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
   </div>
 
   <script type="module" src="./script.js"></script>
