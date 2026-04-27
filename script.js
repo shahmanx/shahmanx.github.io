@@ -62,14 +62,14 @@ const tabContent = {
       <div class="awards-grid">
         <div class="award-card">
           <div class="award-icon">🏆</div>
-          <h3>Growth Marketing Award</h3>
+          <h3>UOC Commercial Excellence Award</h3>
           <p>
             Recognized for driving digital marketing performance, campaign execution,
             and growth-focused initiatives.
           </p>
 
           <div class="award-image">
-            <img src="images/OSH.png" alt="Growth Marketing Award">
+            <img src="images/image.webp" alt="Growth Marketing Award">
           </div>
 
           <p class="image-caption">
