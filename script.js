@@ -112,7 +112,7 @@ const tabContent = {
             <span class="tag">Google Ads Certification</span>
             <span class="tag">Google Digital Marketing & E-commerce</span>
             <span class="tag">Facebook Blueprint Media Buying</span>
-            <span class="tag">SQL for Data Science</span>
+            <span class="tag">Bach. Creative Multimedia University <i>Sultan Abdul Halim Mu'adzam Shah International Islamic University</i></span>
           </div>
         </div>
 
@@ -235,6 +235,7 @@ const tabContent = {
             </div>
           </div>
           <div class="tag-list feature-tags">
+          <span class="tag">Google Search Console</span>
             <span class="tag">Screaming Frog</span>
             <span class="tag">Ahrefs</span>
             <span class="tag">SEMrush</span>
