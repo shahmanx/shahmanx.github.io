@@ -687,9 +687,14 @@ body {
       inset 0 1px 0 rgba(255, 255, 255, 0.18);
   }
 
-  .logo,
-  .profile {
-    display: none;
+  .logo {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  z-index: 1000;
   }
 
   .menu {
