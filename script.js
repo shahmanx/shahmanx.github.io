@@ -362,26 +362,26 @@ const tabContent = {
           </div>
         </article>
 
-        <article class="project-item" data-case="landing">
-          <span class="case-label">Lead Generation</span>
-          <h3>Landing Page Production</h3>
-          <p>Created over 100 mobile-optimized landing pages to support paid campaigns and academic programme enquiries.</p>
+       <article class="project-item" data-case="landing">
+  <span class="case-label">CRM & Automation</span>
+  <h3>SleekFlow WhatsApp Chatbot Journey</h3>
+  <p>Designed and implemented a WhatsApp automation flow using SleekFlow to manage enquiries, capture leads, and streamline customer interactions.</p>
 
-          <div class="case-grid">
-            <div class="case-block">
-              <strong>Challenge</strong>
-              <p>Campaign traffic needed clearer landing experiences tailored to different programmes, audiences, and conversion goals.</p>
-            </div>
-            <div class="case-block">
-              <strong>Action</strong>
-              <p>Built mobile-focused landing pages with clearer information flow, campaign-specific messaging, and lead capture integration.</p>
-            </div>
-            <div class="case-block">
-              <strong>Outcome</strong>
-              <p>Improved campaign readiness, supported lead generation, and created reusable landing page structures for ongoing marketing activity.</p>
-            </div>
-          </div>
-        </article>
+  <div class="case-grid">
+    <div class="case-block">
+      <strong>Challenge</strong>
+      <p>High volume of enquiries required a structured and timely response system to reduce manual handling and improve user experience.</p>
+    </div>
+    <div class="case-block">
+      <strong>Action</strong>
+      <p>Built a chatbot flow in SleekFlow to guide users through enquiry paths, capture key information, and route conversations for follow-up.</p>
+    </div>
+    <div class="case-block">
+      <strong>Outcome</strong>
+      <p>Improved response consistency and supported a more efficient WhatsApp customer journey from initial enquiry to follow-up.</p>
+    </div>
+  </div>
+</article>
 
         <article class="project-item" data-case="paid">
           <span class="case-label">Paid Media</span>
