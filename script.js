@@ -27,10 +27,16 @@ const tabContent = {
         </div>
 
         <div class="cta-row">
-          <a class="cta-button" href="https://drive.usercontent.google.com/u/0/uc?id=1UfRExAee9v8rdPujEgDMkDtEHpR8MaH-&export=download" download>
-            <i class="fas fa-download"></i>
-            Download Resume
-          </a>
+  <a 
+    class="cta-button" 
+    href="https://drive.usercontent.google.com/u/0/uc?id=1UFRExAee9v8rdPujFgDMkDtEHpR8MaH-&export=download"
+    target="_blank"
+    onclick="gtag('event', 'resume_download')"
+  >
+    <i class="fas fa-download"></i>
+    Download Resume
+  </a>
+</div>
           <a class="secondary-button" href="https://www.linkedin.com/in/shahman-zainuddin-72016723a/" target="_blank" rel="noopener">
             <i class="fab fa-linkedin"></i>
             LinkedIn
