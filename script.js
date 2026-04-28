@@ -478,7 +478,7 @@ const tabContent = {
             <i class="fas fa-download"></i>
             Download Resume
           </a>
-          <a class="secondary-button" href="https://www.linkedin.com/in/YOUR-LINKEDIN-USERNAME" target="_blank" rel="noopener">
+          <a class="secondary-button" href="https://www.linkedin.com/in/shahman-zainuddin-72016723a/" target="_blank" rel="noopener">
             <i class="fab fa-linkedin"></i>
             LinkedIn
           </a>
