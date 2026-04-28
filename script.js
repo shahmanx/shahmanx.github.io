@@ -27,7 +27,7 @@ const tabContent = {
         </div>
 
        <div class="cta-row">
-          <a class="cta-button" https://drive.usercontent.google.com/u/0/uc?id=1UFRExAee9v8rdPujFgDMkDtEHpR8MaH-&export=download" download>
+          <a class="cta-button" href="https://drive.usercontent.google.com/u/0/uc?id=1UFRExAee9v8rdPujFgDMkDtEHpR8MaH-&export=download" download>
             <i class="fas fa-download"></i>
             Download Resume
           </a>
@@ -468,7 +468,7 @@ const tabContent = {
         <a class="contact-link" href="mailto:shahmanzainuddin@gmail.com">shahmanzainuddin@gmail.com</a>
 
         <div class="cta-row">
-          <a class="cta-button" href="https://drive.google.com/file/d/1UfRExAee9v8rdPujEgDMkDtEHpR8MaH-/view?usp=sharing" download>
+          <a class="cta-button" href="https://drive.usercontent.google.com/u/0/uc?id=1UFRExAee9v8rdPujFgDMkDtEHpR8MaH-&export=download" download>
             <i class="fas fa-download"></i>
             Download Resume
           </a>
@@ -568,7 +568,7 @@ const caseStudies = {
     label: "Technical SEO",
     title: "Technical SEO & Site Performance",
     intro: "Conducted technical SEO audits and resolved performance issues to improve website health and search readiness.",
-    image: "images/case-seo.jpg",
+    image: "images/case-seo.png",
     metrics: [
       ["CWV", "Core Web Vitals"],
       ["SEO", "Site health"],
