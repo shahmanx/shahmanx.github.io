@@ -504,7 +504,7 @@ const caseStudies = {
     label: "Paid Media",
     title: "Multi-Platform Paid Campaigns",
     intro: "Managed digital advertising across Google Ads, Meta Ads, TikTok, and LinkedIn with annual spend exceeding MYR 2M.",
-    image: "images/case-paid.jpg",
+    image: "images/case-paid.webp",
     metrics: [
       ["MYR 2M+", "Annual ad spend"],
       ["4", "Major ad platforms"],
@@ -520,7 +520,7 @@ const caseStudies = {
     label: "Analytics",
     title: "Tracking & Reporting Implementation",
     intro: "Implemented GA4 and Google Tag Manager tracking across multiple websites to improve marketing performance visibility.",
-    image: "images/case-tracking.jpg",
+    image: "images/case-tracking.webp",
     metrics: [
       ["GA4", "User behavior tracking"],
       ["GTM", "Conversion events"],
@@ -536,7 +536,7 @@ const caseStudies = {
     label: "Web Platform",
     title: "Group Website Management",
     intro: "Managed and maintained more than 12 WordPress websites across group-level digital platforms.",
-    image: "images/case-web.jpg",
+    image: "images/case-web.webp",
     metrics: [
       ["12+", "Websites managed"],
       ["CMS", "Structured content"],
@@ -549,20 +549,20 @@ const caseStudies = {
   },
 
   landing: {
-    label: "Lead Generation",
-    title: "Landing Page Production",
-    intro: "Created over 100 mobile-optimized landing pages to support lead generation campaigns.",
-    image: "images/case-landing.jpg",
-    metrics: [
-      ["100+", "Landing pages"],
-      ["Mobile", "Optimized journeys"],
-      ["Lead Gen", "Capture integration"]
-    ],
-    challenge: "Campaign traffic required targeted landing pages aligned with specific programmes, audiences, and conversion goals.",
-    action: "Designed and built landing pages with clear structure, mobile optimization, and integrated lead capture systems.",
-    outcome: "Improved campaign readiness and supported consistent lead generation across multiple campaigns.",
-    tools: ["WordPress", "Elementor", "GA4", "GTM"]
-  },
+  label: "CRM & Automation",
+  title: "SleekFlow WhatsApp Chatbot Journey",
+  intro: "Built and optimized a WhatsApp automation flow using SleekFlow to support lead engagement, enquiry handling, and customer journey automation.",
+  image: "images/case-sleekflow.jpg",
+  metrics: [
+    ["WhatsApp", "Automated enquiry flow"],
+    ["Chatbot", "Lead engagement journey"],
+    ["CRM", "Lead capture & routing"]
+  ],
+  challenge: "Leads from campaigns and landing pages needed a faster, more structured follow-up journey through WhatsApp without relying only on manual response.",
+  action: "Designed a chatbot flow in SleekFlow to guide users through enquiry steps, capture key information, support lead nurturing, and route conversations for follow-up.",
+  outcome: "Improved lead engagement workflow and supported a more consistent WhatsApp customer journey from first enquiry to follow-up.",
+  tools: ["SleekFlow", "WhatsApp", "CRM Automation", "Landing Pages", "Paid Campaigns"]
+},
 
   seo: {
     label: "Technical SEO",
