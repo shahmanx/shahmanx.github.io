@@ -552,7 +552,7 @@ const caseStudies = {
   label: "CRM & Automation",
   title: "SleekFlow WhatsApp Chatbot Journey",
   intro: "Built and optimized a WhatsApp automation flow using SleekFlow to support lead engagement, enquiry handling, and customer journey automation.",
-  image: "images/case-sleekflow.jpg",
+  image: "images/case-sleekflow.webp",
   metrics: [
     ["WhatsApp", "Automated enquiry flow"],
     ["Chatbot", "Lead engagement journey"],
