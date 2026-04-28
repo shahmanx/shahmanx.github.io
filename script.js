@@ -149,7 +149,7 @@ const tabContent = {
             <span class="tag">Google Ads Certification</span>
             <span class="tag">Google Digital Marketing & E-commerce</span>
             <span class="tag">Facebook Blueprint Media Buying</span>
-            <span class="tag">Bach. Creative Multimedia <br><i>University Sultan Abdul Halim Mu'adzam Shah International Islamic University</br></i></span>
+            <span class="tag">Dip. Creative Multimedia <br><i>University Sultan Abdul Halim Mu'adzam Shah International Islamic University</br></i></span>
           </div>
         </div>
 
