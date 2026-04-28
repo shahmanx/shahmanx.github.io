@@ -27,7 +27,7 @@ const tabContent = {
         </div>
 
        <div class="cta-row">
-          <a class="cta-button" href="https://drive.usercontent.google.com/u/0/uc?id=1UFRExAee9v8rdPujFgDMkDtEHpR8MaH-&export=download" download>
+          <a class="cta-button" https://drive.usercontent.google.com/u/0/uc?id=1UFRExAee9v8rdPujFgDMkDtEHpR8MaH-&export=download" download>
             <i class="fas fa-download"></i>
             Download Resume
           </a>
